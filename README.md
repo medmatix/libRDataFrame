@@ -5,7 +5,7 @@ A library, containing the consolidated collection of routines to support R-style
 ### Overview and Statement of purpose (goal development)
 see [Project page](https://medmatix.github.io/libRDataFrame/)
   
-Some omponents of the is project are of use outside of the R data structure use case, such as the utilisty to read and write CSV files in C++. The links to these are included to below.
+**Some components of the is project are of use outside of the R data structure use case, such as the utilisty to read and write CSV files in C++. The links to these are included to below.**
 
 This project has the goal of developing an R-like dataframe class and other data structures (like an R factor data type (called a category for C++) for similar applications for analysis of data written entirely in C++. 
 
