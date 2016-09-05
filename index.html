@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-dark.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <title>Librdataframe by medmatix</title>
+  </head>
+
+  <body>
+    <div id="container">
+      <div class="inner">
+
+        <header>
+          <h1>Librdataframe</h1>
+          <h2>A library, containing consolidated collection of routines to support R-style Data Structures for C++</h2>
+        </header>
+
+        <section id="downloads" class="clearfix">
+          <a href="https://github.com/medmatix/libRDataFrame/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
+          <a href="https://github.com/medmatix/libRDataFrame/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
+          <a href="https://github.com/medmatix/libRDataFrame" id="view-on-github" class="button"><span>View on GitHub</span></a>
+        </section>
+
+        <hr>
+
+        <section id="main_content">
+          <h2>
+<a id="librdataframe" class="anchor" href="#librdataframe" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>libRDataFrame</h2>
+
+<p>A library, containing the consolidated collection of routines to support R-style Data Structures for C++</p>
+
+<h3>
+<a id="overview-and-statment-of-purpose-goal-development" class="anchor" href="#overview-and-statment-of-purpose-goal-development" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Overview and Statment of purpose (goal development)</h3>
+
+<p>see <a href="https://medmatix.github.io/libRDataFrame/">Project page</a></p>
+
+<p>This project has the goal of developing an R-like dataframe class and other data structures (like an R factor data type (called a category for C++) for similar applications for analysis of data written entirely in C++. </p>
+
+<p>The necessary building blocks of this dataframe analog are a Variable composite data structure including vector class for the raw data, for the columns of the dataframe, and a vector class to contain the variable objects. Of note, R arrays are column major memory structures, so this is simulates such a structure to provide at least a virtual variable oriented structure.</p>
+
+<p>The R dataframe is, a list derivative with vectors for the columns as elements of the list.As noted below, this is a bit untenable in C++. The base reference to the  elements (rows and columns) is the usual numeric endices. However, associative reference with variable (column) and observation (row) also a feature. This is accomplished with a vector&lt; vector&lt; Node&gt; &gt; &gt; structure.</p>
+
+<p>Being relatively new to C++, this is my first major project in C++. At this point, my breadth and depth of understanding of C++ is growing but is at times an impediment to finding the best way to do things. Each revision provides new experience. Suggestions and comments are welcome.</p>
+
+<h3>
+<a id="contributors" class="anchor" href="#contributors" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Contributors</h3>
+
+<ul>
+<li>Author: David York (Medmatix)</li>
+</ul>
+
+<h3>
+<a id="development-notes" class="anchor" href="#development-notes" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Development Notes</h3>
+
+<h4>
+<a id="a-todo-list" class="anchor" href="#a-todo-list" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>A Todo List</h4>
+
+<ol>
+<li>Decide on the on going approachs to a mixed type list.</li>
+<li>A complete set of getters and setter as will as appropriate to_string methods for each datatype constructed. Include formatted display methods for each structure.
+
+<ul>
+<li>Node class completed getters and setters</li>
+<li>Category class on going development, see individual project</li>
+<li>UtilCSV completed getters and setters</li>
+<li>RDataframe class getters and setters in process, basic ones are complete</li>
+</ul>
+</li>
+<li>Develop a list of functions member and non-member, to include as dataframe manipulator and analysis  functions.</li>
+<li>Continued testing ( main() module) of functions and classes as developed.</li>
+</ol>
+
+<h4>
+<a id="design-directions" class="anchor" href="#design-directions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Design directions</h4>
+
+<p>Initially a list of vectors was the basic plan in keeping with the R structure. However R lists and C++ STL lists are different enough as to handicape any attempt to mimic R structures in C++. Thus a move tp the data.frame in C++ being a vector of vectors. </p>
+
+<p>The principal issue is the need to random access the variables (columns) in the data.frame is the C++ implementation. The C++ list is implemented as a sequentially accessed object to allow access for actions on the elements across the list. The random access of individual list members is not implemented in the list structure.</p>
+
+<h3>
+<a id="unit-testing-notes" class="anchor" href="#unit-testing-notes" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Unit Testing Notes</h3>
+
+<p>Excluding the category data type class, all the relevant getters, setters and display functions are implemented and tested in the Unit Test main() module.</p>
+
+<h3>
+<a id="references-and-acknowledgements" class="anchor" href="#references-and-acknowledgements" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>References and Acknowledgements</h3>
+
+<p>See related project, <a href="http://medmatix.github.io/UtilCSV">UtilCSV</a>
+                     <a href="http://medmatix.github.io/RDataframe">RDataframe7</a></p>
+
+<h3>
+<a id="contacts" class="anchor" href="#contacts" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Contacts</h3>
+
+<p>Author web page, <a href="http://crunches-data.appspot.com">http://crunches-data.appspot.com</a>
+Email, <a href="mailto:medmatix@gmail.com">medmatix@gmail.com</a></p>
+
+<p>Copyright 2016 D.A.York</p>
+        </section>
+
+        <footer>
+          Librdataframe is maintained by <a href="https://github.com/medmatix">medmatix</a><br>
+          This page was generated by <a href="https://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.
+        </footer>
+
+        
+      </div>
+    </div>
+  </body>
+</html>
