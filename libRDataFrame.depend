@@ -1,0 +1,44 @@
+# depslib dependency file v1.0
+1473098391 source:/home/david/Projects/Github_Repositories/git-cola/libRDataFrame/Category.cpp
+	<typeinfo>
+	<cxxabi.h>
+	<iostream>
+	<ostream>
+	<string>
+	<vector>
+	<tuple>
+	<array>
+	<initializer_list>
+	<boost/any.hpp>
+
+1473091856 source:/home/david/Projects/Github_Repositories/git-cola/libRDataFrame/main.cpp
+	<iostream>
+	<UtilCSV37.cpp>
+	<RDataframe7.cxx>
+
+1473098287 source:/home/david/Projects/Github_Repositories/git-cola/libRDataFrame/RDataframe7.cxx
+	<cxxabi.h>
+	<iostream>
+	<ostream>
+	<string>
+	<vector>
+	<tuple>
+	<array>
+	<initializer_list>
+	<boost/any.hpp>
+	<Category.cpp>
+
+1473020884 source:/home/david/Projects/Github_Repositories/git-cola/libRDataFrame/UtilCSV37.cpp
+	<cstdio>
+	<cstdlib>
+	<cctype>
+	<iostream>
+	<ostream>
+	<fstream>
+	<sstream>
+	<string>
+	<vector>
+	<map>
+	<tuple>
+	<algorithm>
+
