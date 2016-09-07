@@ -9,9 +9,9 @@
  *
  * @author David York
  * @date Friday August 26, 2016
- * @version 0.7019
+ * @version 0.7031
  *
- * @description *Description*
+ * @description "*Description*"
  * Creates and provides utilities for a categorical or factor
  * datatype (similar to R's factor type). The utilies allow construction, and
  * population of data type based a vector of factors. There are also functions
@@ -48,7 +48,7 @@
 #include <ostream>
 #include <string>
 #include <vector>
-#include <tuple>
+#include <map>
 #include <array>
 #include <initializer_list>
 #include <boost/any.hpp>
@@ -81,11 +81,15 @@ class category{
      * name it was created with */
     string catVarName = "";
 
-    /** */
-    categoryLevel aFactor;
+    /** map of categorical pairs, the meta-data of the variable storing
+     * the categories. A level number (int) and a level name of title (string)
+     */
+    map<int, string> categorySet;
 
-    /** vector of observations as categorical pairs, level mane and level rank */
-    vector<categoryLevel> categorySet;   // change to a vector of multi-pairs?
+    /** vector of category levels (numeric only) ie. ints (level names are
+     *  obtained as needed  from the map for use in table and plot output.
+     */
+    vector<int> catVarData;
 
 
     public:
@@ -93,20 +97,13 @@ class category{
 
     /** construct with name of variable only */
 	 category(string vName) {
-        catVarName = vName;
-        aFactor.levelName = "";
-        aFactor.levelRank = 0;
-        categorySet.push_back(aFactor);
+
 
     }
 
     /** constructor with every thing except data */
     category(string vName, int lRank, string lName = "") {
-        catVarName = vName;
-        categoryLevel afactor;
-        afactor.levelName = lName;
-        afactor.levelRank = lRank;
-        categorySet.push_back(afactor);
+
    }
 
     /**constructor with metadata and passed a pointer to generic data
@@ -114,32 +111,47 @@ class category{
      * categories
      */
     category(string vName, int lRank, void* ptrData, string lName = ""){
-        catVarName = vName;
-        categoryLevel afactor;
-        afactor.levelName =lName;
-        afactor.levelRank = lRank;
-        categorySet.push_back(afactor);
+
     }
     /**constructor with metadata and passed a fully organized vector of pairs
      * this is already pre-parsed and sorted into categories usually from the data
      * source file*/
     category(string vName, int lRank, vector<categoryLevel>* ptrData, string lName = ""){
-        catVarName = vName;
-        categoryLevel afactor;
-        afactor.levelName =lName;
-        afactor.levelRank = lRank;
-        categorySet.push_back(afactor);
+
     }
 
     /** member functions - class methods */
 
-	 /** set category levels in vector<categoryLevels>
-	  *  @param levelStrList a string vector
-	  *  @param levelIntList an integer vector
-	  *  @return void
+	 /** set or amend map of category levels in vector<categoryLevels>
+	  *  @param levelStrList a string vector, blank names must be held with
+	  *          a ' ' space.
+	  *  @param levelIntList an integer vector integers from 1 to n
+	  *          where n is the total number of levels
+	  *  @return void  the intern map of the categories is (re)populated
      */
-	 void setAllLevels(vector<string> levelStrList, vector<int> levelIntList) {}
+	 void setCategoryLevels(vector<string> levelStrList, vector<int> levelIntList) {
 
+	 }
+
+	 /** set the data vector values
+	  *  @param vector<int> vector of values as the categorized observations
+	  *  @return void  values are read into the carVarData vector.
+      */
+     void setCatVarData(vector<int>) {
+
+     }
+
+     vector<int> getCatVarData() {
+
+     }
+
+     /** map the int level data to corresponding names and return each name value pair
+      *  @param none source is the class instance itself
+      *  @return a vector of name value pairs
+      */
+     vector<categoryLevel> addLevNameToData() {
+
+     }
 
 };
 

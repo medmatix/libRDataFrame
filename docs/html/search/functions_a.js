@@ -1,7 +1,8 @@
 var searchData=
 [
   ['savetocsv',['saveToCSV',['../class_dataframe.html#a352253f7c843ecb7202c3646172c1026',1,'Dataframe']]],
-  ['setalllevels',['setAllLevels',['../classcategory.html#adfded334fa99a18429ca5bda4ae618a0',1,'category']]],
+  ['setcategorylevels',['setCategoryLevels',['../classcategory.html#a8e04835b01a29a4da081138c74bda83b',1,'category']]],
+  ['setcatvardata',['setCatVarData',['../classcategory.html#a0b081457515cc0917e3761a1c7c25916',1,'category']]],
   ['setcolnames',['setColNames',['../class_util_c_s_v.html#a06b81098fe71ddce23ac8af787986536',1,'UtilCSV']]],
   ['setncols',['setNcols',['../class_util_c_s_v.html#aa0aa2eafdeb1edef66947bd0597d26ed',1,'UtilCSV']]],
   ['setnodecontent',['setNodeContent',['../class_node.html#a64672184df30960545e6a74012d724a4',1,'Node']]],

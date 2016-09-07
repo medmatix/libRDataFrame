@@ -12,7 +12,7 @@
  *
  * @author David York
  * @date Saturday August 13, 2016
- * @version 0.703
+ * @version 0.7031
  *
  * *Description:*
  *
@@ -48,6 +48,7 @@
 #include <ostream>
 #include <string>
 #include <vector>
+#include <map>
 #include <tuple>
 #include <array>
 #include <initializer_list>
@@ -84,6 +85,19 @@ class Node {
         /**Vector to receive factors when known that void* ptrdata holds this*/
         vector<category>* cvData = nullptr;
 
+        /**
+         *  Category meta-data as needed for node data of type 'category'
+         *
+         *  A map of categorical pairs, the meta-data of the variable storing
+         *  the categories. A level number (int) and a level name of title (string)
+         */
+        map<int, string> categorySet;
+
+        /**
+         *  A vector of category levels (numeric only) ie. ints (level names are
+         *  obtained as needed  from the map for use in table and plot output.
+         */
+        vector<int> catVarData;
 
 	public:
 	    /** default constructor */

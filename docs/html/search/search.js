@@ -12,7 +12,7 @@ var indexSectionsWithContent =
   2: "cmru",
   3: "abcdglmnprstuw",
   4: "cdilnpsv",
-  5: "r"
+  5: "lr"
 };
 
 var indexSectionNames =
