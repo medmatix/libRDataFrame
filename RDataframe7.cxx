@@ -87,7 +87,9 @@ class Node {
 
         /**
          *  Category meta-data as needed for node data of type 'category'
-         *
+         */
+
+        /**
          *  A map of categorical pairs, the meta-data of the variable storing
          *  the categories. A level number (int) and a level name of title (string)
          */

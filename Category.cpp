@@ -83,11 +83,13 @@ class category{
 
     /** map of categorical pairs, the meta-data of the variable storing
      * the categories. A level number (int) and a level name of title (string)
+     *
      */
     map<int, string> categorySet;
 
     /** vector of category levels (numeric only) ie. ints (level names are
      *  obtained as needed  from the map for use in table and plot output.
+     *
      */
     vector<int> catVarData;
 
