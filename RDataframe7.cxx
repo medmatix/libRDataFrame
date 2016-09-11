@@ -54,6 +54,7 @@
 #include <initializer_list>
 #include <boost/any.hpp>
 #include <Category.cpp>
+#include <UtilCSV37.cpp>
 using namespace std;
 
 /**
@@ -424,6 +425,7 @@ protected:
     vector<Node> dataframe;
     Node variable;
     vector<string> colNames;
+    vector<string> varTypes;
     void* obsDataFrame = nullptr;
     vector<string> obsRowNames;
 
@@ -561,6 +563,10 @@ public:
         return colNames;
     }
 
+    vector<string> getVarTypes() {
+        return varTypes;
+    }
+
     /** add a row of observations to the dataframe structure tuples,
      *  @param obsRow a pointer to the tuple of observations to add
      *  @return none (void)
@@ -602,6 +608,22 @@ public:
          *  @return none (void)
          */
     void loadFromCSV(string csvFName, bool header) {
+        // get the raw string data, vector<vector<string> > via UtilsCSV
+        string frCSV = csvFName;
+        bool head = header;
+        int rtoline = 0;
+        UtilCSV newCSV(frCSV, head, rtoline);
+        vector<vector<string> > fetchedCSV;
+        fetchedCSV = newCSV.getDataStruct();
+        // get the vector<string> list if data types to be applied by column
+        getVarTypes();
+        // convert each column to desired data type vector<type>
+
+        // create Node from vectors<type> for each  column
+        Node variable;
+        // populate columns from Nodes in the generic or blank dataframe
+        dataframe.push_back(variable);
+        //end
     }
 
     /** save the dataframe contents (with or without a header line) to a

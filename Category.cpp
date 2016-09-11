@@ -9,7 +9,7 @@
  *
  * @author David York
  * @date Friday September 9, 2016
- * @version 0.301
+ * @version 0.303
  *
  * @description "*Description*"
  * categoryType creates and provides utilities for a categorical or factor
@@ -144,8 +144,17 @@ class categoryType{
 	  *  @return void  values are read into the carVarData vector.
       */
      void setCatVarData(vector<int> cData) {
-        catVarData = cData;
+         catVarData = cData;
      }
+
+     /**
+      *  get map of category levels in vector<categoryLevels>
+	  *
+	  *  @return category set of levels  the intern map of the categories is (re)populated
+     */
+	 map<int, string> getCategoryLevels(vector<string> levelStrList, vector<int> levelIntList) {
+	     return  categorySet;
+	 }
 
     /** get the data vector values
 	  *  @param vector<int> vector of values as the categorized observations
