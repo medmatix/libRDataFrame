@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['getcategorylevels',['getCategoryLevels',['../classcategory_type.html#a53b20d19f6999950b940548018def766',1,'categoryType']]],
   ['getcatvardata',['getCatVarData',['../classcategory_type.html#af2070c172f06a3e8d39a308dc899f81d',1,'categoryType']]],
   ['getcolnames',['getColNames',['../class_util_c_s_v.html#a06753b8f475e578975fbb94b116df2e3',1,'UtilCSV']]],
   ['getcvs',['getCVS',['../class_util_c_s_v.html#ad7b5c907cd45e9132a1cdab58497cd88',1,'UtilCSV']]],
