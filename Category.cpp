@@ -8,11 +8,11 @@
  * ## A Categorical or "Factor" data type class for C++
  *
  * @author David York
- * @date Friday August 26, 2016
- * @version 0.7031
+ * @date Friday September 9, 2016
+ * @version 0.301
  *
  * @description "*Description*"
- * Creates and provides utilities for a categorical or factor
+ * categoryType creates and provides utilities for a categorical or factor
  * datatype (similar to R's factor type). The utilies allow construction, and
  * population of data type based a vector of factors. There are also functions
  * included to convert factor variables to and from int and string variable
@@ -67,7 +67,7 @@ using namespace std;
 /** Class for a category (factor) container data type consisting of the category
  * name (a string) and an integer ranking, collected into a vector of these
 * pairs each an observation from a set */
-class category{
+class categoryType{
     protected:
     /** structure for each data point observed as a factory of categorical type */
     struct categoryLevel {     //? change to multi-pair<int, string> types?
@@ -98,13 +98,13 @@ class category{
     /** Constructors */
 
     /** construct with name of variable only */
-	 category(string vName) {
+	 categoryType(string vName) {
 
 
     }
 
     /** constructor with every thing except data */
-    category(string vName, int lRank, string lName = "") {
+    categoryType(string vName, int lRank, string lName = "") {
 
    }
 
@@ -112,13 +112,13 @@ class category{
      * this data will need to be parsed and sorted the data then group into
      * categories
      */
-    category(string vName, int lRank, void* ptrData, string lName = ""){
+    categoryType(string vName, int lRank, void* ptrData, string lName = ""){
 
     }
     /**constructor with metadata and passed a fully organized vector of pairs
      * this is already pre-parsed and sorted into categories usually from the data
      * source file*/
-    category(string vName, int lRank, vector<categoryLevel>* ptrData, string lName = ""){
+    categoryType(string vName, int lRank, vector<categoryLevel>* ptrData, string lName = ""){
 
     }
 
@@ -131,19 +131,28 @@ class category{
 	  *          where n is the total number of levels
 	  *  @return void  the intern map of the categories is (re)populated
      */
-	 void setCategoryLevels(vector<string> levelStrList, vector<int> levelIntList) {
-
+	void setCategoryLevels(vector<string> levelStrList, vector<int> levelIntList) {
+	    categoryLevel catL;
+        catL.levelName = "one";
+        catL.levelRank = 1;
+        categorySet[catL.levelRank] = catL.levelName;
+        cout << categorySet[1]<< endl;
 	 }
 
 	 /** set the data vector values
 	  *  @param vector<int> vector of values as the categorized observations
 	  *  @return void  values are read into the carVarData vector.
       */
-     void setCatVarData(vector<int>) {
-
+     void setCatVarData(vector<int> cData) {
+        catVarData = cData;
      }
 
+    /** get the data vector values
+	  *  @param vector<int> vector of values as the categorized observations
+	  *  @return void  values are read into the carVarData vector.
+      */
      vector<int> getCatVarData() {
+         return catVarData;
 
      }
 
@@ -151,8 +160,10 @@ class category{
       *  @param none source is the class instance itself
       *  @return a vector of name value pairs
       */
-     vector<categoryLevel> addLevNameToData() {
-
+     void addLevNameToData(vector<int> cData) {
+         // loop throught the vector of integers (levels)
+            //look-up corresponding level names
+            // construct a vector of pairs of output the paired category values
      }
 
 };

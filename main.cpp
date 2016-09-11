@@ -10,7 +10,7 @@
  * @author David York
  * @contributors  no others
  * @date Sunday September 4, 2016
- * @version 0.1
+ * @version 0.2
  *
  * @description *Description:*
  *              This is the main() module for Unit testing of the classes
@@ -68,7 +68,7 @@ int main(int argc, char **argv)
 
     cout << "   Dataframe Unit Test Suite:" << endl;
     cout << "   =========================" << endl << endl;
-    cout << " Getting test data. . ." << endl << endl;
+    cout << "       Getting test data. . ." << endl << endl;
     /** Make working data arrays for unit tests
     *   from AirPassengers.csv, a base R dataset */
     initializer_list<int> data[13];
@@ -101,11 +101,10 @@ int main(int argc, char **argv)
     vector<int> nov {data[11]};
     vector<int> dec {data[12]};
 
-//    cout << "Number of columns: " << ncols <<< endl;
-//    int nrows = colhead.length
-    //cout << "Number of columns: " << ncols <<< endl;
 
     /** NODE TESTS */
+    cout << endl << "  Node Specific Tests " << endl;
+    cout << "  ------------------- " << endl << endl;
     string vName;
     string vType;
     int vNumber;
@@ -123,18 +122,15 @@ int main(int argc, char **argv)
     cout << " NODE #: " << vNumber << endl;
     variable1.displayNode();
     cout << endl;
-    variable1.displayName_Type();
-    cout << endl << endl;
 
-
-    /** test full constructors */
+ /** test full constructors */
     vName = "Jan";
     vType = "int";
     vNumber = 1;
     pVData = &jan;
     r = jan.size();
 
-    Node variable2(12, vName, vType, vNumber, pVData);
+    Node variable2(r, vName, vType, vNumber, pVData);
     cout << "NODE #: " << vNumber << endl;
     variable2.displayNode();
     cout << endl << endl;
@@ -145,21 +141,23 @@ int main(int argc, char **argv)
     /** test various class methods */
     /**    Setters */
     cout << " testing setters . . ."<<endl;
+    cout << "   change variable name and type" << endl;
     cout<<endl;
     variable2.setVarName("other");
     variable2.setVarType("long");
-    cout << " show adjusted name and type"<< endl;
+    cout << "   show new or adjusted name and type"<< endl;
     variable2.displayName_Type();
-    cout<<endl;
+    cout << "   change position number " <<endl;
     variable2.setVarNumber(3);
     variable2.setVarDataRows(30);
-    cout << " changed position number and nrows and display the whole amended node," << endl;
+    cout << "   show changed position number and nrows and display the whole amended node," << endl;
     variable2.displayNode();
     cout<<endl;
 
     r = jan.size();
-    cout << " return contents to original and display the node again." <<endl;
+    cout << "  return contents to original and display the node again." <<endl;
     variable2.setNodeContent(r, vName, vType, vNumber, pVData);
+    cout << " show meta-data and data vector now . . " << endl;
     cout << " NODE #: " << vNumber << endl;
     variable2.displayNode();
     cout << endl << endl;
@@ -176,15 +174,51 @@ int main(int argc, char **argv)
     cout << "   get variable data range:          " << variable1.getVarDataRange(0,11);
     cout << endl << endl;
 
+
+    /** Testing different data types
+     *  string */
+    cout << "  Create and test a string variable " << endl << endl;
+    initializer_list<string> strData = {"Date","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"};
+    vector<string> months {strData};
+    vName = "Month";
+    vType = "string";
+    vNumber = 0;
+    pVData = &months;
+    r = months.size();
+
+    Node variable5s(r, vName, vType, vNumber, pVData);
+    cout << "NODE #: " << vNumber << endl;
+    variable5s.displayNode();
+    cout << endl << endl;
+
+
+    /** double type */
+    cout << "  Create and test a double variable" << endl << endl;
+    initializer_list<double> dblData {2.3413,5.23, 23.56, 198.0, 7.11042, 734.9992, 19.1945, 3.1415962, 45, 30.2, 7565.11, 629.023};
+    vector<double> rndNumbs {dblData};
+    vName = "randoms";
+    vType = "double";
+    vNumber = 0;
+    pVData = &rndNumbs;
+    r = rndNumbs.size();
+
+    Node variable5d(r, vName, vType, vNumber, pVData);
+    cout << "NODE #: " << vNumber << endl;
+    variable5d.displayNode();
+    cout << endl << endl;
+    cout << "  ************************************* " << endl <<endl;
     /** DATAFRAME TESTS */
     /** test default constructors*/
+    cout << "  Dataframe SpecificTests "<< endl;
+    cout << "  ----------------------- " <<endl << endl;
     Dataframe dfTest;
+    cout << "  dfTest an empty dataframe constructed, awaits meta-data and data variables " << endl<<endl;
 
     /** test full constructors */
 
     /** test various class methods */
 
-    cout << "   ************************************ " << endl<< endl;
+    cout << endl << "  ************************************* " << endl;
 
 
 
@@ -235,6 +269,7 @@ int main(int argc, char **argv)
     cout << "  Category type Unit Test Suite:" << endl;
     cout << "  =======================" << endl<< endl;
     cout << endl<<endl;
+
 
 
 
