@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['category',['category',['../classcategory.html',1,'']]],
-  ['categorylevel',['categoryLevel',['../structcategory_1_1category_level.html',1,'category']]]
+  ['categorylevel',['categoryLevel',['../structcategory_type_1_1category_level.html',1,'categoryType']]],
+  ['categorytype',['categoryType',['../classcategory_type.html',1,'']]]
 ];

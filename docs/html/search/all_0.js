@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['addlevnametodata',['addLevNameToData',['../classcategory.html#a11273d4198dfc53bd9fb9f8ead6a6a86',1,'category']]],
-  ['addobstuple',['addObsTuple',['../class_dataframe.html#aeab7ac8a12b2b398a7c29a1cc1cecc3d',1,'Dataframe']]]
+  ['addlevnametodata',['addLevNameToData',['../classcategory_type.html#a81df470615eb17a2422f670297befd5e',1,'categoryType']]],
+  ['addobsrow',['addObsRow',['../class_dataframe.html#a7ee86f11b63df66b4745e01963b1990a',1,'Dataframe']]]
 ];

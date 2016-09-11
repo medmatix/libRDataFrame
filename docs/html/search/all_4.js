@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['getcatvardata',['getCatVarData',['../classcategory_type.html#af2070c172f06a3e8d39a308dc899f81d',1,'categoryType']]],
   ['getcolnames',['getColNames',['../class_util_c_s_v.html#a06753b8f475e578975fbb94b116df2e3',1,'UtilCSV']]],
   ['getcvs',['getCVS',['../class_util_c_s_v.html#ad7b5c907cd45e9132a1cdab58497cd88',1,'UtilCSV']]],
   ['getdataframe',['getDataframe',['../class_dataframe.html#a7d8d0169ad1db9cf79f3ce94ff35a680',1,'Dataframe']]],
@@ -8,13 +9,13 @@ var searchData=
   ['getdatastruct',['getDataStruct',['../class_util_c_s_v.html#a898906325d24e51f157ead0eb6e35702',1,'UtilCSV']]],
   ['getncols',['getNcols',['../class_util_c_s_v.html#a6bbaaae883fdc9b7c92c9ca2772d7b25',1,'UtilCSV']]],
   ['getnode',['getNode',['../class_dataframe.html#aa1362ac0c098124ee65658d7ff2edb90',1,'Dataframe']]],
-  ['getnodecatdata',['getNodeCatData',['../class_node.html#a4d84e5c81b0d03d51ae4129ef47bc2f9',1,'Node']]],
+  ['getnodecatdata',['getNodeCatData',['../class_node.html#a8cc94701ae432c2593272d9bebc74de7',1,'Node']]],
   ['getnodedbldata',['getNodeDblData',['../class_node.html#a3c6cf901173ae7ac21a5a674491f8e34',1,'Node']]],
   ['getnodeintdata',['getNodeIntData',['../class_node.html#a2efcaad8d574fa1e81cf59db6d877d51',1,'Node']]],
   ['getnodestrdata',['getNodeStrData',['../class_node.html#a78ab5c617765de7759c109bb57bd1c9a',1,'Node']]],
-  ['getnrows',['getNrows',['../class_util_c_s_v.html#ae97f2e6340a2076cfc7fa440f77e8b25',1,'UtilCSV::getNrows()'],['../class_node.html#a14e5ded6fe873e481f5e3ade5ae54e8b',1,'Node::getNRows()']]],
+  ['getnrows',['getNRows',['../class_node.html#a14e5ded6fe873e481f5e3ade5ae54e8b',1,'Node::getNRows()'],['../class_util_c_s_v.html#ae97f2e6340a2076cfc7fa440f77e8b25',1,'UtilCSV::getNrows()']]],
   ['getobs',['getObs',['../class_dataframe.html#ad90e6fe1a88842b7abae39f6e0e87649',1,'Dataframe']]],
-  ['getrangerows',['getRangeRows',['../class_dataframe.html#adbb83852d4ae7fab312eff686e4f40cc',1,'Dataframe']]],
+  ['getrangeofrows',['getRangeOfRows',['../class_dataframe.html#a9d00dd5f75ae945f61e03af26ef646f1',1,'Dataframe']]],
   ['getvardata',['getVarData',['../class_node.html#a5b3b2330046ab2dd1dc6709253999bd9',1,'Node']]],
   ['getvardatarange',['getVarDataRange',['../class_node.html#a285fde15029d0c6d8e53852712d2e89a',1,'Node']]],
   ['getvarname',['getVarName',['../class_node.html#a0080b796ee97bb0768827a67f5f30d9d',1,'Node']]],
