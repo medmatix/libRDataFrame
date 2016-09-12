@@ -57,6 +57,7 @@ using namespace std;
 int main(int argc, char **argv)
 {
 /**
+ * \page " "
  * \section "RDataframe Unit Tests"
  *  \subsection "Test Documentation"
  * This part of the main() function is related to both the Node class

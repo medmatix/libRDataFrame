@@ -38,6 +38,7 @@
  * MA 02110-1301, USA.
  *
  * &copy; 2016 David York
+ *
  * \page "Design Notes"
  * Initially a list of vectors was the basic plan in keeping with the R
  * structure. However R lists and C++ STL lists are different enough as to
@@ -49,7 +50,8 @@
  * sequentially accessed object to allow access for actions on the elements
  * across the list. The random access of individual list members is not
  * implemented in the list structure.
- *  ![UML](./Dataframe_Class.svg)
+ *
+ *  ![UML](Dataframe_Class.svg)
  */
 
 

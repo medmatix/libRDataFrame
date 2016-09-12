@@ -10,9 +10,9 @@ var indexSectionsWithContent =
   0: "abcdgilmnprstuvw",
   1: "cdnu",
   2: "cmru",
-  3: "abcdglmnprstuw",
+  3: "abcdglnprstuw",
   4: "cdilnpsv",
-  5: "lr"
+  5: "dlr"
 };
 
 var indexSectionNames =

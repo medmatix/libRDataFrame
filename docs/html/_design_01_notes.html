@@ -77,13 +77,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- top -->
 <div class="contents">
 <div class="textblock"><p>Initially a list of vectors was the basic plan in keeping with the R structure. However R lists and C++ STL lists are different enough as to handicape any attempt to mimic R structures in C++. Thus a move tp the data.frame in C++ being a vector of vectors.</p>
-<p>The principal issue is the need to random access the variables (columns) in the data.frame is the C++ implementation. The C++ list is implemented as a sequentially accessed object to allow access for actions on the elements across the list. The random access of individual list members is not implemented in the list structure. </p><div class="image">
-<img src="./Dataframe_Class.svg"  alt="UML"/>
+<p>The principal issue is the need to random access the variables (columns) in the data.frame is the C++ implementation. The C++ list is implemented as a sequentially accessed object to allow access for actions on the elements across the list. The random access of individual list members is not implemented in the list structure.</p>
+<div class="image">
+<img src="Dataframe_Class.svg"  alt="UML"/>
 </div>
  </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Sep 12 2016 11:54:38 for libRDataFrame by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Sep 12 2016 12:44:51 for libRDataFrame by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

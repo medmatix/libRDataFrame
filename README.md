@@ -34,6 +34,8 @@ Initially a list of vectors was the basic plan in keeping with the R structure. 
 
 The principal issue is the need to random access the variables (columns) in the data.frame is the C++ implementation. The C++ list is implemented as a sequentially accessed object to allow access for actions on the elements across the list. The random access of individual list members is not implemented in the list structure.
 
+![](Dataframe_Class.svg)
+
 ###Unit Testing Notes
 Excluding the category data type class, all the relevant getters, setters and display functions are implemented and tested in the Unit Test main() module.
 
