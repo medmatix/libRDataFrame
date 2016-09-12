@@ -1,7 +1,5 @@
-/** \file
- * \page "Factor / Category"
- * \section "category data type"
- *
+/**\file
+ *\page
  * Source File:
  * *category.cpp*
  *
@@ -11,8 +9,7 @@
  * @date Friday September 9, 2016
  * @version 0.303
  *
- * @description "*Description*"
- * categoryType creates and provides utilities for a categorical or factor
+ * @brief categoryType creates and provides utilities for a categorical or factor
  * datatype (similar to R's factor type). The utilies allow construction, and
  * population of data type based a vector of factors. There are also functions
  * included to convert factor variables to and from int and string variable

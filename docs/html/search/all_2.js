@@ -11,5 +11,6 @@ var searchData=
   ['createobsdataframe',['createObsDataframe',['../class_dataframe.html#a2af456381793b20d7ad8f67c17a71c58',1,'Dataframe']]],
   ['createobstuple',['createObsTuple',['../class_dataframe.html#a21bc9fa656e983e49ba7fbe74fe51747',1,'Dataframe']]],
   ['createtypesvector',['createTypesVector',['../class_dataframe.html#ac49c17273335474d87179fa233551c93',1,'Dataframe']]],
-  ['cvdata',['cvData',['../class_node.html#a01dfb3f2b0482216f9c80827b2284a2f',1,'Node']]]
+  ['cvdata',['cvData',['../class_node.html#a01dfb3f2b0482216f9c80827b2284a2f',1,'Node']]],
+  ['category',['category',['../md_category.html',1,'']]]
 ];

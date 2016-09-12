@@ -1,23 +1,18 @@
 /**\file
- * \page "CSV Utilities"
- * @file: UtilCSV37.cpp (current working version of code here)
+ * * *Source* UtilCSV37.cpp (current working version of code here)
  *
- * @title: C++ classes for Manipulating CSV Files
+ * ###C++ classes for Manipulating CSV Files
  *
- * @Copyright 2016 David York <david@debian2x8david>
- *
- * @author David York
- * @contributors  no others
+ * @author David York <david@debian2x8david>
  * @date Sunday September 4, 2016
  * @version 0.375
  *
- * @description *Description:*
- *       Classes to provide C++ tools to manipulate CSV files,
+ * @brief Classes to provide C++ tools to manipulate CSV files,
  *       including reading and writing such files from and to disk
  *       into a string data structure then parsing the individual fields
  *       from the string structure.
  *
- * @license *License:*
+ * *License:*
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General Public License
  * as published by the Free Software Foundation; either version 2 of
@@ -62,6 +57,12 @@ using namespace std;
 /** Declarations */
 
 /** Classes */
+
+/**
+ * CSV utilities class
+ * @brief Contains the data structures receiving the imported data from the CSV
+ * file (or going to be written to a CSV file).
+ */
 class UtilCSV
 {
 protected:

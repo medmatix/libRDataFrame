@@ -9,5 +9,5 @@ var searchData=
   ['displaynode',['displayNode',['../class_node.html#a96a8dec047cf24af043e7ca8ccfcea3d',1,'Node']]],
   ['displaynodedata',['displayNodeData',['../class_dataframe.html#a37551c2006c6fb964ff69c41b22b849f',1,'Dataframe']]],
   ['dvdata',['dvData',['../class_node.html#a620a125457674a2252d14b89e6001c07',1,'Node']]],
-  ['design_20notes',['Design Notes',['../md__readme2.html',1,'']]]
+  ['design_20notes',['Design Notes',['../md__design__notes.html',1,'']]]
 ];

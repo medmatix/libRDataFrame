@@ -33,8 +33,12 @@
 			<Add option="-fexceptions" />
 		</Compiler>
 		<Unit filename="Category.cpp" />
+		<Unit filename="Design Notes.md" />
 		<Unit filename="RDataframe7.cxx" />
+		<Unit filename="README.md" />
+		<Unit filename="UtilCSV.md" />
 		<Unit filename="UtilCSV37.cpp" />
+		<Unit filename="category.md" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<code_completion />

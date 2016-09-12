@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.8"/>
-<title>libRDataFrame: libRDataFrame</title>
+<title>libRDataFrame: Design Notes</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -77,45 +77,46 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- top -->
 <div class="header">
   <div class="headertitle">
-<div class="title">libRDataFrame </div>  </div>
+<div class="title">Design Notes </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p>A library, containing the consolidated collection of routines to support R-style Data Structures for C++</p>
-<h3>Overview and Statement of purpose (goal development)</h3>
-<p>see <a href="https://medmatix.github.io/libRDataFrame/">Project page</a></p>
-<p><em>Some components of the is project are of use outside of the R data structure Use Case, such as the utility to read and write CSV files in C++. The links to these are included to below.</em></p>
-<p>This project has the goal of developing an R-like dataframe class and other data structures (like an R factor data type (called a category for C++) for similar applications for analysis of data written entirely in C++.</p>
-<p>The necessary building blocks of this dataframe analog are a Variable composite data structure including vector class for the raw data, for the columns of the dataframe, and a vector class to contain the variable objects. Of note, R arrays are column major memory structures, so this is simulates such a structure to provide at least a virtual variable oriented structure.</p>
-<p>The R dataframe is, a list derivative with vectors for the columns as elements of the list.As noted below, this is a bit untenable in C++. The base reference to the elements (rows and columns) is the usual numeric endices. However, associative reference with variable (column) and observation (row) also a feature. This is accomplished with a vector&lt; vector&lt; Node&gt; &gt; &gt; structure.</p>
-<p>Being relatively new to C++, this is my first major project in C++. At this point, my breadth and depth of understanding of C++ is growing but is at times an impediment to finding the best way to do things. Each revision provides new experience. Suggestions and comments are welcome.</p>
-<h3>Contributors</h3>
+<div class="textblock"><p>A library, containing a consolidated collection of routines to support R-style Data Structures for C++</p>
+<h3>Objective:</h3>
+<p>The overall goal is the development of a set of data structures suited particularly to the use of C++ in data analysis. Core to this is the development of a data table structure like the R data.frame.</p>
+<p>Perhaps one of the most attractive features in the R language (after the implicit idea vectorization of it's structures and functions) is it's data structures, particularly the dataframe.</p>
+<p>This is emulated to a degree in python with the pandas data analysis library. Other interpreted and proprietary statistical environments have approximations or substitutes (like spreadsheets) for dataframes. The use of dataframe like transformational structure have been an obvious part of R packages writtent in C++). A search of the open source C++ template libraried etc has not turned up, for me anyway, the obvious evolution of matrices or lists for C++ programming generally.</p>
+<p>Further, the inclusion of categorical data in analyses needs a factor data structure like that in R and an ability to construct dummy variables for linear model development. Currently the implementation is contained in,</p>
 <ul>
-<li>Author: David York (Medmatix)</li>
+<li>RDataframe7.cpp (classes <a class="el" href="class_node.html">Node</a> and <a class="el" href="class_dataframe.html">Dataframe</a>)</li>
+<li><a class="el" href="_util_c_s_v37_8cpp.html" title="Classes to provide C++ tools to manipulate CSV files, including reading and writing such files from a...">UtilCSV37.cpp</a> (class <a class="el" href="class_util_c_s_v.html" title="Contains the data structures receiving the imported data from the CSV file (or going to be written to...">UtilCSV</a> with a CSV csvToParse structure and dataStruct structure)</li>
+<li><a class="el" href="_category_8cpp.html">Category.cpp</a> (class <a class="el" href="classcategory_type.html">categoryType</a> with structure categoryLevel)</li>
 </ul>
-<h3>Development Notes</h3>
-<h4>A Todo List</h4>
-<ol type="1">
-<li>Decide on the on going approachs to a mixed type list.</li>
-<li>A complete set of getters and setter as will as appropriate to_string methods for each datatype constructed. Include formatted display methods for each structure.<ul>
-<li><a class="el" href="class_node.html">Node</a> class completed getters and setters</li>
-<li>Category class on going development, see individual project</li>
-<li><a class="el" href="class_util_c_s_v.html" title="Contains the data structures receiving the imported data from the CSV file (or going to be written to...">UtilCSV</a> completed getters and setters</li>
-<li>RDataframe class getters and setters in process, basic ones are complete</li>
-</ul>
-</li>
-<li>Develop a list of functions member and non-member, to include as dataframe manipulator and analysis functions.</li>
-<li>Continued testing ( main() module) of functions and classes as developed.</li>
-</ol>
-<h4>Design directions</h4>
+<p>see also the Unit Test Function in <a class="el" href="main_8cpp.html">main.cpp</a></p>
+<h3>Principles and Conception:</h3>
 <p>Initially a list of vectors was the basic plan in keeping with the R structure. However R lists and C++ STL lists are different enough as to handicape any attempt to mimic R structures in C++. Thus a move tp the data.frame in C++ being a vector of vectors.</p>
 <p>The principal issue is the need to random access the variables (columns) in the data.frame is the C++ implementation. The C++ list is implemented as a sequentially accessed object to allow access for actions on the elements across the list. The random access of individual list members is not implemented in the list structure.</p>
 <div class="image">
 <img src="Dataframe_Class.svg"  alt="Class Diagram"/>
 </div>
-<h3>Unit Testing Notes</h3>
-<p>Excluding the category data type class, all the relevant getters, setters and display functions are implemented and tested in the Unit Test main() module.</p>
-<h3>References and Acknowledgements</h3>
-<p>See related project, <a href="http://medmatix.github.io/UtilCSV">UtilCSV</a> <a href="http://medmatix.github.io/RDataframe">RDataframe7</a></p>
+<h3>References and Acknowledgements:</h3>
+<p>for a notable CSV file reading project with same general goal, see Jay Satiro, <a href="https://github.com/jay/CSV">https://github.com/jay/CSV</a></p>
+<ul>
+<li>R Development Core Team, Eds. "The R Language Definition", <a href="https://cran.r-project.org/doc/manuals/r-release/R-lang.html">https://cran.r-project.org/doc/manuals/r-release/R-lang.html</a> September 12, 2016 14:46p</li>
+<li>R Development Core Team, Eds. "Writing R Extensions", <a href="https://cran.r-project.org/doc/manuals/r-release/R-exts.html">https://cran.r-project.org/doc/manuals/r-release/R-exts.html</a> September 5, 2016 17:11p</li>
+<li>R Development Core Team, Eds. "R Internals", <a href="https://cran.r-project.org/doc/manuals/r-release/R-ints.html">https://cran.r-project.org/doc/manuals/r-release/R-ints.html</a> September 12, 2016 14:52p</li>
+<li>Horstmann, Cay and Timothy A Budd, "Big C++", 2nd Edition, John Wiley &amp; Sons, 2009.</li>
+<li>Reese, Greg, "C++ standard library practical tips" Thompson Delmar Learning, Hingham MA 2005.</li>
+<li>Galassi, Mark et al. (The GSL Team), GNU Scientific Library Reference Manual Edition 1.16, for GSL Version 1.16, 2013.</li>
+<li>Eddelbuettel, Dirk, Seamless R and C++ Integration with Rcpp, Springer New York 2013.</li>
+<li>Lawal, H Bayo, "Categorical data analysis with SAS and SPSS applications", Lawrence Erlbaum Associates, Mahwah NJ 2003.</li>
+<li>Pierce, Benjamin C., "Basic Category Theory for Computer Scientists, MIT Boston, 1991.</li>
+<li>Agresti,Alan Analysis of Ordinal Categorical Data, John Wiley &amp; Sons, New Jersey, 2010.</li>
+<li>"Factors in R". <a href="http://www.stat.berkeley.edu/classes/s133/factors.html">http://www.stat.berkeley.edu/classes/s133/factors.html</a> accessed September 5, 2016 at 05:11pm.</li>
+<li>Draper, Norman R; Harry Smith Applied Regression Analysis, Third Edition, Wiley Interscience, New York, 1998.</li>
+<li>"Categorical Variable", <a href="https://en.wikipedia.org/wiki/Categorical_variable,">https://en.wikipedia.org/wiki/Categorical_variable,</a> accessed, September 5, 2016 at 05:22pm.</li>
+<li>Powers, Daniel A.; Yu Xie Statistical Methods for Categorical Data Analysis,Academic Press, 1999.</li>
+<li>Blasius, Jorg; Michael Greenacre, Visualization of Categorical Data, Academic Press, London, 1998.</li>
+</ul>
 <h3>Contacts</h3>
 <p>Author web page, <a href="http://crunches-data.appspot.com">http://crunches-data.appspot.com</a> Email, <a href="#" onclick="location.href='mai'+'lto:'+'med'+'ma'+'tix'+'@g'+'mai'+'l.'+'com'; return false;">medma<span style="display: none;">.nosp@m.</span>tix@<span style="display: none;">.nosp@m.</span>gmail<span style="display: none;">.nosp@m.</span>.com</a></p>
 <p>Copyright 2016 D.A.York </p>

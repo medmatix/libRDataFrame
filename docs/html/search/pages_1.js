@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['librdataframe',['libRDataFrame',['../md__r_e_a_d_m_e.html',1,'']]]
+  ['design_20notes',['Design Notes',['../md__design__notes.html',1,'']]]
 ];

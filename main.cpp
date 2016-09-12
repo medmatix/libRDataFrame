@@ -1,24 +1,21 @@
 /**\file
  * \page "Unit Tests"
- * @file: main.cpp (current working version of test code here)
  *
- * @title: Unit tests for C++ classes for Category datatype, RDataframe7
- *         datatype and UtilCSV37 CSV Manipulation/
+ * Source: main.cpp (current working version of test code here)
  *
- * @Copyright 2016 David York <david@debian2x8david>
+ * **Unit tests for C++ classes for Category datatype, RDataframe7
+ *         datatype and UtilCSV37 CSV Manipulation/**
  *
- * @author David York
- * @contributors  no others
+ *
+ * @author David York <david@debian2x8david>
  * @date Sunday September 4, 2016
  * @version 0.2
  *
- * @description *Description:*
- *              This is the main() module for Unit testing of the classes
- *              related to the RDataframe data type (Dataframe)and relevant
- *              other code including that for the category data type the node
- *              data type (Node) and the CSV file utilities (UtilCSV).
+ * @brief This is the main() module for Unit testing of the classes related to
+ *        the RDataframe data type ( Dataframe )and relevant other code including
+ *        that for the category data type the node data type ( Node ) and the CSV
+ *        file utilities ( UtilCSV ).
  *
- * @license
  * *License:*
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General Public License
@@ -45,7 +42,7 @@ using namespace std;
 
 /**
  * \page "Unit Tests"
- *  The main() function is a non-member function related to testing of the
+ *  @brief The main() function is a non-member function related to testing of the
  *  classes  Node, RDataframe, Category, UtilCSV
  * \fn "the main function"
  *  The Unit Test suite for the Node and Dataframe classes

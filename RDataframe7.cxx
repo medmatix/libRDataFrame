@@ -14,9 +14,7 @@
  * @date Saturday August 13, 2016
  * @version 0.7035
  *
- * *Description:*
- *
- * This creates a datatype "dataframe" modeled on the R language datatype.
+ * @brief This creates a datatype "dataframe" modeled on the R language datatype.
  * Initial memory order is simulated or forced column major.
  *
  *
@@ -38,20 +36,6 @@
  * MA 02110-1301, USA.
  *
  * &copy; 2016 David York
- *
- * \page "Design Notes"
- * Initially a list of vectors was the basic plan in keeping with the R
- * structure. However R lists and C++ STL lists are different enough as to
- * handicape any attempt to mimic R structures in C++. Thus a move tp the
- * data.frame in C++ being a vector of vectors.
- *
- * The principal issue is the need to random access the variables (columns) in
- * the data.frame is the C++ implementation. The C++ list is implemented as a
- * sequentially accessed object to allow access for actions on the elements
- * across the list. The random access of individual list members is not
- * implemented in the list structure.
- *
- *  ![UML](Dataframe_Class.svg)
  */
 
 
