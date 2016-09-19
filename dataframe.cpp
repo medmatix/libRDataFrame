@@ -10,7 +10,7 @@
  *
  * @author David York
  * @date Saturday August 13, 2016
- * @version 0.7035
+ * @version 0.8
  *
  * @brief This creates a datatype "dataframe" modeled on the R language datatype.
  * Initial memory order is simulated or forced column major.
