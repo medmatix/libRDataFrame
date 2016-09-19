@@ -40,9 +40,6 @@
 #include <initializer_list>
 #include <boost/any.hpp>
 
-#include "dataframe.hpp"
-#include "node.hpp"
-#include "category.hpp"
 #include "utilCSV.hpp"
 
 
