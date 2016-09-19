@@ -199,26 +199,6 @@ using namespace std;
         return internStrDataStruct;
     }
 
-    /** build a dataframe / Class of vector of variable columns of types string
-     *  as vector collection of contents of parsed strings of a specific
-     *  observation fields. */
-    vector<vector<string> > utilCSV::makeDataFrame (vector<vector<string> > intStrDStruct) {
-        vector<vector<string> > dframe;
-        vector<node> vars;
-        vector<string> elems;
-        /** columns populated with vars[0]:vars[intStrDStruct.size() */
-        for(unsigned int i = 0; i < intStrDStruct.size(); ++i) {
-            /**vars vectors populated with elements of intStrDStruct[i].size()*/
-            for(unsigned int j = 0; j < intStrDStruct[i].size(); ++j) {
-                cout << "("<< i << "," << j << ")" << " ";
-                elems[j]=(intStrDStruct[i])[j];
-                vars[i].push_back(elems[j])
-            }
-        cout << endl;
-        }
-        return dframe;
-    }
-
     /** write some data structure of strings to disk as a csv */
     void utilCSV::writeCSV(vector<vector<string> > strDataStruct, string oFName = "./data/datafile.csv") {
         vector<string> dataRow;
