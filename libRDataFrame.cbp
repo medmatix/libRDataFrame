@@ -46,6 +46,8 @@
 		<Unit filename="node.cpp" />
 		<Unit filename="node.hpp" />
 		<Unit filename="node.md" />
+		<Unit filename="utilCSV.cpp" />
+		<Unit filename="utilCSV.hpp" />
 		<Unit filename="utilCSV.md" />
 		<Extensions>
 			<code_completion />

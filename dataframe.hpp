@@ -56,7 +56,7 @@ public:
     std::vector<std::string> getVarTypes();
     void addObsRow(void* obsRow);
     void setNode(node varNode, int vNumber);
-    //void convertDfToVStrings(dataframe df);
+    void convertDfToVStrings(dataframe df);
     void convertParsedVStrtoDf(std::vector< std::vector<std::string> > parsedVVS);
     void loadFromCSV(std::string csvFName, bool header);
     std::vector<std::vector<std::string> > makeDataFrame (std::vector<std::vector<std::string> > intStrDStruct);

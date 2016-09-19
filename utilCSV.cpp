@@ -63,7 +63,7 @@ using namespace std;
     utilCSV::utilCSV() {}
 
     // Full constructor
-    utilCSV::utilCSV(string frCSV, bool header, int rtoline = 0) {
+    utilCSV::utilCSV(string frCSV, bool header, int rtoline) {
         fromCSVFile = frCSV;
         hasHeader = header;
         readToLine = 0;         // has no effect yet (ie. 0 = 'all')
@@ -172,7 +172,7 @@ using namespace std;
         string obsItem;
         while (!sstream.eof() ) {
             // store each obsItem in a vector
-            utilCSV::getline(sstream, obsItem, ',');
+            std::getline(sstream, obsItem, ',');
             rowElements.push_back(obsItem);
         }
     return rowElements;
@@ -197,10 +197,14 @@ using namespace std;
     }
 
     /** write some data structure of strings to disk as a csv */
-    void utilCSV::writeCSV(vector<vector<string> > strDataStruct, string oFName = "./data/datafile.csv") {
+    void utilCSV::writeCSV(vector<vector<string> > strDataStruct, string oFName) {
+        string outFileName;
+        if(oFName == "") {
+            outFileName = "./data/datafile.csv";
+        } else outFileName = oFName;
         vector<string> dataRow;
         string csvLineOut;
-        ofstream outFile(oFName.c_str(), ios::out);
+        ofstream outFile(outFileName.c_str(), ios::out);
         if (!outFile) {
             cout << "Could not create file." << endl;
             exit(1);
@@ -296,4 +300,4 @@ using namespace std;
         string internalContent;
         return internalContent;
     }
-};
+

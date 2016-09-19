@@ -42,7 +42,7 @@ public:
     std::vector<std::string> readCSV(std::string iFileN);
     std::vector<std::string> parseLine(std::string lineToParse);
     std::vector<std::vector<std::string> > buildDataStruct(std::vector<std::string> csvToParse);
-    void writeCSV(std::vector<std::vector<std::string> > strDataStruct, std::string oFName = "./data/datafile.csv");
+    void writeCSV(std::vector<std::vector<std::string> > strDataStruct, std::string oFName);
     void displayColNames();
     void displayInternCSV();
     void displayStrDataStruct();

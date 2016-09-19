@@ -42,10 +42,7 @@
 #include "utilCSV.hpp"
 #include "category.hpp"
 
-
 using namespace std;
-
-
 
 /**
  * \page "Unit Tests"
@@ -280,7 +277,8 @@ int main(int argc, char **argv)
     Airpass.displayInternCSV();
     Airpass.displayColNames();
     Airpass.displayStrDataStruct();
-    Airpass.writeCSV(Airpass.getStrDataStruct());
+    vector<vector<string> > strDStruct = Airpass.getStrDataStruct();
+    Airpass.writeCSV(strDStruct, "datafile.csv");
     vector<string> newCols;
         newCols.push_back("Date");
         newCols.push_back("Jan");
@@ -300,7 +298,6 @@ int main(int argc, char **argv)
     Airpass.displayColNames();
     Airpass.displayStrDataStruct();
     vector<vector<string> > sDS = Airpass.getStrDataStruct();
-    Airpass.makeDataFrame(sDS);
     Airpass.writeCSV(Airpass.getStrDataStruct(), "./data/newHeader.csv");
     cout << endl << endl;
 

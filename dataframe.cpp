@@ -87,9 +87,11 @@ using namespace std;
      *
      */
      vector<string> dataframe::createTypesVector() {
+         vector<string> varTypes;
          //Reads the type of each node
          //constructs a vector<string> from the types of the nodes in the dataframe
          //returns the vector list
+         return varTypes;
      }
     /** create a table of observations from the dataframe listing variable
      *  observation(s) (values) as tuples,
@@ -133,6 +135,7 @@ using namespace std;
          */
     void* dataframe::getObs(int rowNumber) {                                             // INCOMPLETE function
         string dummyReturn = "";
+        vector<string> obs;
         //get obs one at a time across row and then pass ALL to make_tuple
         auto obsRow = make_tuple(rowNumber, dummyReturn);
         return &obsRow;
@@ -166,8 +169,8 @@ using namespace std;
      *  @return a pointer to a block of values for the range selected
      */
     void* dataframe::getDataRange(int r1,int c1,int r2, int c2) {
-        vector<string> aRange;                                                //??? make an array or matrix of strings ?
-        aRange.push_back("");
+        vector<vector<string> > aRange;                                                //??? make an array or matrix of strings ?
+
         return &aRange;
     }
 
@@ -248,17 +251,17 @@ using namespace std;
     /** build a dataframe / Class of vector of variable columns of types string
      *  as vector collection of contents of parsed strings of a specific
      *  observation fields. */
-    vector<vector<string> > utilCSV::makeDataFrame (vector<vector<string> > intStrDStruct) {
+    vector<vector<string> > makeDataFrame (vector<vector<string> > internStrDStruct) {
         vector<vector<string> > dframe;
         vector<node> vars;
         vector<string> elems;
         /** columns populated with vars[0]:vars[intStrDStruct.size() */
-        for(unsigned int i = 0; i < intStrDStruct.size(); ++i) {
+        for(unsigned int i = 0; i < internStrDStruct.size(); ++i) {
             /**vars vectors populated with elements of intStrDStruct[i].size()*/
-            for(unsigned int j = 0; j < intStrDStruct[i].size(); ++j) {
+            for(unsigned int j = 0; j < internStrDStruct[i].size(); ++j) {
                 cout << "("<< i << "," << j << ")" << " ";
-                elems[j]=(intStrDStruct[i])[j];
-                vars[i].push_back(elems[j])
+                elems[j]=(internStrDStruct[i])[j];
+                //vars[i].push_back(elems[j])
             }
         cout << endl;
         }

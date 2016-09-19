@@ -11,10 +11,28 @@
 	<initializer_list>
 	<boost/any.hpp>
 
-1473628370 source:/home/david/Projects/Github_Repositories/git-cola/libRDataFrame/main.cpp
+1474306345 source:/home/david/Projects/Github_Repositories/git-cola/libRDataFrame/main.cpp
+	<cstdio>
+	<cstdlib>
+	<cctype>
 	<iostream>
-	<UtilCSV37.cpp>
-	<RDataframe7.cxx>
+	<ostream>
+	<fstream>
+	<sstream>
+	<string>
+	<vector>
+	<map>
+	<tuple>
+	<algorithm>
+	<typeinfo>
+	<cxxabi.h>
+	<array>
+	<initializer_list>
+	<boost/any.hpp>
+	"node.hpp"
+	"dataframe.hpp"
+	"utilCSV.hpp"
+	"category.hpp"
 
 1473629456 source:/home/david/Projects/Github_Repositories/git-cola/libRDataFrame/RDataframe7.cxx
 	<cxxabi.h>
@@ -42,4 +60,157 @@
 	<map>
 	<tuple>
 	<algorithm>
+
+1474237040 source:/home/david/Projects/Github_Repositories/git-cola/libRDataFrame/category.cpp
+	<string>
+	<map>
+	<typeinfo>
+	<cxxabi.h>
+	<iostream>
+	<ostream>
+	<string>
+	<vector>
+	<map>
+	<array>
+	<initializer_list>
+	<boost/any.hpp>
+	"node.hpp"
+	"dataframe.hpp"
+	"category.hpp"
+
+1474234841 /home/david/Projects/Github_Repositories/git-cola/libRDataFrame/node.hpp
+	<cstdio>
+	<cstdlib>
+	<cctype>
+	<iostream>
+	<ostream>
+	<fstream>
+	<sstream>
+	<string>
+	<vector>
+	<map>
+	<tuple>
+	<algorithm>
+	<typeinfo>
+	<cxxabi.h>
+	<array>
+	<initializer_list>
+	<boost/any.hpp>
+
+1474301924 /home/david/Projects/Github_Repositories/git-cola/libRDataFrame/dataframe.hpp
+	<cstdio>
+	<cstdlib>
+	<cctype>
+	<iostream>
+	<ostream>
+	<fstream>
+	<sstream>
+	<string>
+	<vector>
+	<map>
+	<tuple>
+	<algorithm>
+	<typeinfo>
+	<cxxabi.h>
+	<array>
+	<initializer_list>
+	<boost/any.hpp>
+	"utilCSV.hpp"
+	"node.hpp"
+
+1474306220 /home/david/Projects/Github_Repositories/git-cola/libRDataFrame/utilCSV.hpp
+	<typeinfo>
+	<cxxabi.h>
+	<iostream>
+	<ostream>
+	<string>
+	<vector>
+	<map>
+	<array>
+	<initializer_list>
+	<boost/any.hpp>
+
+1474236666 /home/david/Projects/Github_Repositories/git-cola/libRDataFrame/category.hpp
+	<cstdio>
+	<cstdlib>
+	<cctype>
+	<iostream>
+	<ostream>
+	<fstream>
+	<sstream>
+	<string>
+	<vector>
+	<map>
+	<tuple>
+	<algorithm>
+	<typeinfo>
+	<cxxabi.h>
+	<array>
+	<initializer_list>
+	<boost/any.hpp>
+	"dataframe.hpp"
+	"node.hpp"
+	"category.hpp"
+
+1474302478 source:/home/david/Projects/Github_Repositories/git-cola/libRDataFrame/dataframe.cpp
+	<cstdio>
+	<cstdlib>
+	<cctype>
+	<iostream>
+	<ostream>
+	<fstream>
+	<sstream>
+	<string>
+	<vector>
+	<map>
+	<tuple>
+	<algorithm>
+	<typeinfo>
+	<cxxabi.h>
+	<array>
+	<initializer_list>
+	<boost/any.hpp>
+	"dataframe.hpp"
+	"node.hpp"
+	"utilCSV.hpp"
+
+1474301451 source:/home/david/Projects/Github_Repositories/git-cola/libRDataFrame/node.cpp
+	<cstdio>
+	<cstdlib>
+	<cctype>
+	<iostream>
+	<ostream>
+	<fstream>
+	<sstream>
+	<string>
+	<vector>
+	<map>
+	<tuple>
+	<algorithm>
+	<typeinfo>
+	<cxxabi.h>
+	<array>
+	<initializer_list>
+	<boost/any.hpp>
+	"node.hpp"
+
+1474303840 source:/home/david/Projects/Github_Repositories/git-cola/libRDataFrame/utilCSV.cpp
+	<cstdio>
+	<cstdlib>
+	<cctype>
+	<iostream>
+	<ostream>
+	<fstream>
+	<sstream>
+	<string>
+	<vector>
+	<map>
+	<tuple>
+	<algorithm>
+	<typeinfo>
+	<cxxabi.h>
+	<array>
+	<initializer_list>
+	<boost/any.hpp>
+	"utilCSV.hpp"
 
