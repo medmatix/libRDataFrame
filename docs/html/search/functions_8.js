@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['readcsv',['readCSV',['../class_util_c_s_v.html#afdbb16b761d74c0e92d056cb3860439b',1,'UtilCSV']]]
+  ['parseline',['parseLine',['../classutil_c_s_v.html#ac9551a1b480bd89382b89a43917cf41d',1,'utilCSV']]]
 ];

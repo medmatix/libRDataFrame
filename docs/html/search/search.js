@@ -7,12 +7,12 @@
 
 var indexSectionsWithContent =
 {
-  0: "abcdgilmnprstuvw",
+  0: "abcdglmnprstuw",
   1: "cdnu",
-  2: "cmru",
-  3: "abcdglnprstuw",
-  4: "cdilnpsv",
-  5: "cdlru"
+  2: "cdmnu",
+  3: "abcdglmnprstuw",
+  4: "cl",
+  5: "acdlmnu"
 };
 
 var indexSectionNames =
