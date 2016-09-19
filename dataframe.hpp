@@ -59,6 +59,7 @@ public:
     //void convertDfToVStrings(dataframe df);
     void convertParsedVStrtoDf(std::vector< std::vector<std::string> > parsedVVS);
     void loadFromCSV(std::string csvFName, bool header);
+    std::vector<std::vector<std::string> > makeDataFrame (std::vector<std::vector<std::string> > intStrDStruct);
     void saveToCSV(std::string csvFName);
     void displayDataframe();
     void displayNodeData(int position=0, std::string varName="");
