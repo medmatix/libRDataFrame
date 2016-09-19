@@ -19,8 +19,6 @@
 #include <initializer_list>
 #include <boost/any.hpp>
 
-
-#include "category.hpp"
 #include "utilCSV.hpp"
 #include "node.hpp"
 
