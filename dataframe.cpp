@@ -51,7 +51,6 @@
 
 #include "dataframe.hpp"
 #include "node.hpp"
-#include "category.hpp"
 #include "utilCSV.hpp"
 
 using namespace std;
