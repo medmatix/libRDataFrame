@@ -1,5 +1,5 @@
 /**\file
- * * *Source* UtilCSV37.cpp (current working version of code here)
+ * * *Source* utilCSV.cpp (current working version of code here)
  *
  * ###C++ classes for Manipulating CSV Files
  *
@@ -12,21 +12,6 @@
  *       into a string data structure then parsing the individual fields
  *       from the string structure.
  *
- * *License:*
- * This program is free software; you can redistribute it
- * and/or modify it under the terms of the GNU General Public License
- * as published by the Free Software Foundation; either version 2 of
- * the License, or (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program; if not, write to the Free Software
- * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
- * MA 02110-1301, USA.
  *
  * &copy; 2016 David York
  *
@@ -49,6 +34,16 @@
 #include <map>
 #include <tuple>
 #include <algorithm>
+#include <typeinfo>
+#include <cxxabi.h>
+#include <array>
+#include <initializer_list>
+#include <boost/any.hpp>
+
+#include "dataframe.hpp"
+#include "node.hpp"
+#include "category.hpp"
+#include "utilCSV.hpp"
 
 
 using namespace std;
@@ -63,28 +58,15 @@ using namespace std;
  * @brief Contains the data structures receiving the imported data from the CSV
  * file (or going to be written to a CSV file).
  */
-class UtilCSV
-{
-protected:
-    string fromCSVFile;
-    int readToLine;
-    bool hasHeader;
-    int nrows;
-    int ncols;
 
-    string lineToParse;
-    vector<string> parsedLine;
-    vector<string> colNames;
-    vector<string> csvToParse;
-    vector<vector<string> > dataStruct;
 
-public:
+
     /** Constructors */
     // Default constructor
-    UtilCSV() {}
+    utilCSV::utilCSV() {}
 
     // Full constructor
-    UtilCSV(string frCSV, bool header, int rtoline = 0) {
+    utilCSV::utilCSV(string frCSV, bool header, int rtoline = 0) {
         fromCSVFile = frCSV;
         hasHeader = header;
         readToLine = 0;         // has no effect yet (ie. 0 = 'all')
@@ -117,31 +99,31 @@ public:
         setNcols();
         setNrows();
         parsedLine.clear();
-        dataStruct = buildDataStruct(csvToParse);
+        strDataStruct = buildDataStruct(csvToParse);
     }
 
 
     /** Methods */
     //Accessors
     /** Accessor-get number of columns/variables in table*/
-    int getNcols() {
+    int utilCSV::getNcols() {
         return ncols;
     }
     /** Accessor-get number of rows/observations in table*/
-    int getNrows() {
+    int utilCSV::getNrows() {
         return nrows;
     }
     /** Accessor-set number of columns/variables in table*/
-    void setNcols() {
+    void utilCSV::setNcols() {
         ncols = parsedLine.size();
     }
     /** Accessor-set number of rows/observations in table*/
-    void setNrows() {
+    void utilCSV::setNrows() {
         nrows = csvToParse.size();
     }
 
     /** Accessor-reset column names*/
-    void setColNames(vector<string> cnames) {
+    void utilCSV::setColNames(vector<string> cnames) {
             if(cnames.size() == colNames.size()) {
                 cnames[cnames.size()-1] = cnames[cnames.size()-1] + "\n";
                 colNames = cnames;
@@ -152,20 +134,20 @@ public:
     }
 
     /** Accessor-get current column names*/
-    vector<string> getColNames() {
+    vector<string> utilCSV::getColNames() {
         return colNames;
     }
 
     /** Accessor-return the uploaded CSV file to caller */
-    vector<string> getCVS() {return csvToParse;}
+    vector<string> utilCSV::getCVS() {return csvToParse;}
 
     /** Accessor-return the data structure (table) to caller */
-    vector<vector<string> > getDataStruct() {
-        return dataStruct;
+    vector<vector<string> > utilCSV::getStrDataStruct() {
+        return strDataStruct;
     }
 
     /** read a stated CSV file from disk */
-    vector<string> readCSV(string iFileN) {
+    vector<string> utilCSV::readCSV(string iFileN) {
         vector<string> theCSV;
         string inFileLine;
         string inFileName = fromCSVFile;
@@ -184,7 +166,7 @@ public:
     }
 
     /**parse a line of the csv file, return it to caller */
-    vector<string> parseLine(string lineToParse) {
+    vector<string> utilCSV::parseLine(string lineToParse) {
         string line = "";
         line = lineToParse;
         vector<string> rowElements;
@@ -193,7 +175,7 @@ public:
         string obsItem;
         while (!sstream.eof() ) {
             // store each obsItem in a vector
-            getline(sstream, obsItem, ',');
+            utilCSV::getline(sstream, obsItem, ',');
             rowElements.push_back(obsItem);
         }
     return rowElements;
@@ -201,24 +183,44 @@ public:
 
     /** build a data Structure / Class of records of types string as vectors
      * of parsed strings of observations data (fields). */
-    vector<vector<string> > buildDataStruct (vector<string> csvToParse) {
-        vector<vector<string> > internDataStruct;
+    vector<vector<string> > utilCSV::buildDataStruct (vector<string> csvToParse) {
+        vector<vector<string> > internStrDataStruct;
         for(unsigned int i = 0; i < csvToParse.size(); ++i) {
-        parsedLine.clear();
+        utilCSV::parsedLine.clear();
         lineToParse = "";
         lineToParse.clear();
         lineToParse = csvToParse[i];
-        parsedLine = parseLine(lineToParse);
-        internDataStruct.push_back(parsedLine);
+        parsedLine = utilCSV::parseLine(lineToParse);
+        internStrDataStruct.push_back(parsedLine);
         cout << endl;
 
         }
 
-        return internDataStruct;
+        return internStrDataStruct;
+    }
+
+    /** build a dataframe / Class of vector of variable columns of types string
+     *  as vector collection of contents of parsed strings of a specific
+     *  observation fields. */
+    vector<vector<string> > utilCSV::makeDataFrame (vector<vector<string> > intStrDStruct) {
+        vector<vector<string> > dframe;
+        vector<node> vars;
+        vector<string> elems;
+        /** columns populated with vars[0]:vars[intStrDStruct.size() */
+        for(unsigned int i = 0; i < intStrDStruct.size(); ++i) {
+            /**vars vectors populated with elements of intStrDStruct[i].size()*/
+            for(unsigned int j = 0; j < intStrDStruct[i].size(); ++j) {
+                cout << "("<< i << "," << j << ")" << " ";
+                elems[j]=(intStrDStruct[i])[j];
+                vars[i].push_back(elems[j])
+            }
+        cout << endl;
+        }
+        return dframe;
     }
 
     /** write some data structure of strings to disk as a csv */
-    void writeCSV(vector<vector<string> > dataStruct, string oFName = "./data/datafile.csv") {
+    void utilCSV::writeCSV(vector<vector<string> > strDataStruct, string oFName = "./data/datafile.csv") {
         vector<string> dataRow;
         string csvLineOut;
         ofstream outFile(oFName.c_str(), ios::out);
@@ -237,7 +239,7 @@ public:
             csvLineOut = "";
         }
 
-        for(vector<vector<string> >::iterator it=dataStruct.begin(); it != dataStruct.end(); it++) {
+        for(vector<vector<string> >::iterator it=strDataStruct.begin(); it != strDataStruct.end(); it++) {
             dataRow.clear();
             dataRow = *it;
             csvLineOut = "";
@@ -254,7 +256,7 @@ public:
     }
 
     /**display the current column names */
-    void displayColNames() {
+    void utilCSV::displayColNames() {
         cout << endl << "Column Names" << endl;
         for(unsigned i = 0; i < colNames.size(); ++i) {
             if(i == unsigned(ncols -1)) {
@@ -267,7 +269,7 @@ public:
     }
 
     /**display the csv data read from disk */
-    void displayInternCSV() {
+    void utilCSV::displayInternCSV() {
         cout << "unparsed:" << endl;
         for(unsigned i = 0; i < colNames.size(); ++i) {
             if(i == unsigned(ncols - 1)) {
@@ -282,8 +284,8 @@ public:
         cout << endl;
     }
 
-    /**display the data structure of class (dataStruct) as built */
-    void displayDataStruct() {
+    /**display the data structure of class (strDataStruct) as built */
+    void utilCSV::displayStrDataStruct() {
         cout << "built data structure:" << endl << endl;
         string dashes(4 * colNames.size(), '-');
         string spaces(1, ' ');
@@ -299,7 +301,7 @@ public:
         vector<string> dataRow;
         string dSLineOut;
         cout << dashes << endl;
-        for(vector<vector<string> >::iterator it=dataStruct.begin(); it != dataStruct.end(); it++) {
+        for(vector<vector<string> >::iterator it=strDataStruct.begin(); it != strDataStruct.end(); it++) {
             dataRow.clear();
             dataRow = *it;
             dSLineOut = "";
@@ -313,13 +315,8 @@ public:
 
 
     /** convert a data structure to a single string object and return the object */
-    string toString() {
+    string utilCSV::toString() {
         string internalContent;
         return internalContent;
     }
-
-
 };
-
-
-/** See unit test code for UtilCSV in main() module */

@@ -39,6 +39,8 @@
  * &copy; 2016 David York
  */
 
+#include <string>
+#include<map>
 #include <typeinfo>
 #include <cxxabi.h>
 #include <iostream>
@@ -50,6 +52,10 @@
 #include <initializer_list>
 #include <boost/any.hpp>
 
+#include "node.hpp";
+#include "dataframe.hpp"
+#include "category.hpp"
+
 using namespace std;
 
 
@@ -59,13 +65,10 @@ using namespace std;
  * text data file sources for datasets. */
 
 
-
-
 /** Class for a category (factor) container data type consisting of the category
  * name (a string) and an integer ranking, collected into a vector of these
 * pairs each an observation from a set */
-class categoryType{
-    protected:
+
     /** structure for each data point observed as a factory of categorical type */
     struct categoryLevel {     //? change to multi-pair<int, string> types?
     	/** name of data level point */
@@ -91,17 +94,20 @@ class categoryType{
     vector<int> catVarData;
 
 
-    public:
     /** Constructors */
 
-    /** construct with name of variable only */
-	 categoryType(string vName) {
+    /**default constructor */
+    categoryType::categoryType() {
 
+    }
+
+    /** construct with name of variable only */
+    categoryType::categoryType(string vName) {
 
     }
 
     /** constructor with every thing except data */
-    categoryType(string vName, int lRank, string lName = "") {
+    categoryType::categoryType(string vName, int lRank, string lName) {
 
    }
 
@@ -109,13 +115,13 @@ class categoryType{
      * this data will need to be parsed and sorted the data then group into
      * categories
      */
-    categoryType(string vName, int lRank, void* ptrData, string lName = ""){
+    categoryType::categoryType(string vName, int lRank, void* ptrData, string lName){
 
     }
     /**constructor with metadata and passed a fully organized vector of pairs
      * this is already pre-parsed and sorted into categories usually from the data
      * source file*/
-    categoryType(string vName, int lRank, vector<categoryLevel>* ptrData, string lName = ""){
+    categoryType::categoryType(string vName, int lRank, vector<categoryLevel>* ptrData, string lName){
 
     }
 
@@ -128,7 +134,7 @@ class categoryType{
 	  *          where n is the total number of levels
 	  *  @return void  the intern map of the categories is (re)populated
      */
-	void setCategoryLevels(vector<string> levelStrList, vector<int> levelIntList) {
+	void categoryType::setCategoryLevels(vector<string> levelStrList, vector<int> levelIntList) {
 	    categoryLevel catL;
         catL.levelName = "one";
         catL.levelRank = 1;
@@ -140,7 +146,7 @@ class categoryType{
 	  *  @param vector<int> vector of values as the categorized observations
 	  *  @return void  values are read into the carVarData vector.
       */
-     void setCatVarData(vector<int> cData) {
+     void categoryType::setCatVarData(vector<int> cData) {
          catVarData = cData;
      }
 
@@ -149,7 +155,7 @@ class categoryType{
 	  *
 	  *  @return category set of levels  the intern map of the categories is (re)populated
      */
-	 map<int, string> getCategoryLevels(vector<string> levelStrList, vector<int> levelIntList) {
+	 map<int, string> categoryType::getCategoryLevels(vector<string> levelStrList, vector<int> levelIntList) {
 	     return  categorySet;
 	 }
 
@@ -157,7 +163,7 @@ class categoryType{
 	  *  @param vector<int> vector of values as the categorized observations
 	  *  @return void  values are read into the carVarData vector.
       */
-     vector<int> getCatVarData() {
+     vector<int> categoryType::getCatVarData() {
          return catVarData;
 
      }
@@ -166,12 +172,8 @@ class categoryType{
       *  @param none source is the class instance itself
       *  @return a vector of name value pairs
       */
-     void addLevNameToData(vector<int> cData) {
+     void categoryType::addLevNameToData(vector<int> cData) {
          // loop throught the vector of integers (levels)
             //look-up corresponding level names
             // construct a vector of pairs of output the paired category values
      }
-
-};
-
-/** See ant unit test code for the Category Data Type Class in main() module */

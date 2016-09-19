@@ -4,7 +4,7 @@
  * Source: main.cpp (current working version of test code here)
  *
  * **Unit tests for C++ classes for Category datatype, RDataframe7
- *         datatype and UtilCSV37 CSV Manipulation/**
+ *         datatype and UtilCSV37 CSV Manipulation**
  *
  *
  * @author David York <david@debian2x8david>
@@ -16,29 +16,36 @@
  *        that for the category data type the node data type ( Node ) and the CSV
  *        file utilities ( UtilCSV ).
  *
- * *License:*
- * This program is free software; you can redistribute it
- * and/or modify it under the terms of the GNU General Public License
- * as published by the Free Software Foundation; either version 2 of
- * the License, or (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program; if not, write to the Free Software
- * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
- * MA 02110-1301, USA.
  *
  * &copy; 2016 David York
  */
+#include <cstdio>
+#include <cstdlib>
+#include <cctype>
 #include <iostream>
-#include <UtilCSV37.cpp>
-#include <RDataframe7.cxx>
+#include <ostream>
+#include <fstream>
+#include <sstream>
+#include <string>
+#include <vector>
+#include <map>
+#include <tuple>
+#include <algorithm>
+#include <typeinfo>
+#include <cxxabi.h>
+#include <array>
+#include <initializer_list>
+#include <boost/any.hpp>
+
+#include "node.hpp"
+#include "dataframe.hpp"
+#include "utilCSV.hpp"
+#include "category.hpp"
+
 
 using namespace std;
+
+
 
 /**
  * \page "Unit Tests"
@@ -115,7 +122,7 @@ int main(int argc, char **argv)
     vNumber = 0;
     pVData =&year;
     r = year.size();
-    Node variable1;
+    node variable1;
     variable1.setNodeContent(r, vName, vType, vNumber, pVData);
     cout << " NODE #: " << vNumber << endl;
     variable1.displayNode();
@@ -128,7 +135,7 @@ int main(int argc, char **argv)
     pVData = &jan;
     r = jan.size();
 
-    Node variable2(r, vName, vType, vNumber, pVData);
+    node variable2(r, vName, vType, vNumber, pVData);
     cout << "NODE #: " << vNumber << endl;
     variable2.displayNode();
     cout << endl << endl;
@@ -168,13 +175,22 @@ int main(int argc, char **argv)
     cout << "   getting variable name:         " << variable1.getVarName() << endl;
     cout << "   getting variable type:         " << variable1.getVarType() << endl;
     cout << "   getting variable position number: " << variable1.getVarNumber() << endl;
-    cout << "   getting number of variable data rows: " << variable1.getNRows() << endl;
-    cout << "   get variable data range:          " << variable1.getVarDataRange(0,11);
-    cout << endl << endl;
+    cout << "   getting number of variable data rows: " << variable1.getNRows() << endl<< endl;
+    cout << "   get variable data range:          " << endl;
+    void* retDataPtr = variable2.getVarDataRange(4,10);
+    vector<int>* extrIntDataPtr = ((vector<int>*)retDataPtr);
+    cout << "returned recast vector size: " << (*extrIntDataPtr).size() << endl;
+    vector<int> extrData = (*extrIntDataPtr);
+    cout << "returned recast vector size: " << extrData.size() << endl;
+    for(unsigned int i = 0; i < extrData.size(); ++i) {
+                    cout << extrData[i] << endl;
+                }
+    cout << endl;
 
 
     /** Testing different data types
      *  string */
+    cout << endl << endl;
     cout << "  Create and test a string variable " << endl << endl;
     initializer_list<string> strData = {"Date","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"};
     vector<string> months {strData};
@@ -184,9 +200,20 @@ int main(int argc, char **argv)
     pVData = &months;
     r = months.size();
 
-    Node variable5s(r, vName, vType, vNumber, pVData);
+    node variable5s(r, vName, vType, vNumber, pVData);
     cout << "NODE #: " << vNumber << endl;
     variable5s.displayNode();
+
+    cout << endl;
+    cout << "extract some elements fro the string variable vector" << endl;
+    retDataPtr = variable5s.getVarDataRange(4,10);
+    vector<string>* extrStrDataPtr = ((vector<string>*)retDataPtr);
+    cout << "returned recast vector size: " << (*extrStrDataPtr).size() << endl;
+    vector<string> extrStrData = (*extrStrDataPtr);
+    cout << "returned recast vector size: " << extrStrData.size() << endl;
+    for(unsigned int i = 0; i < extrStrData.size(); ++i) {
+        cout << extrStrData[i] << endl;
+    }
     cout << endl << endl;
 
 
@@ -200,16 +227,28 @@ int main(int argc, char **argv)
     pVData = &rndNumbs;
     r = rndNumbs.size();
 
-    Node variable5d(r, vName, vType, vNumber, pVData);
+    node variable5d(r, vName, vType, vNumber, pVData);
     cout << "NODE #: " << vNumber << endl;
     variable5d.displayNode();
+
+    cout << endl;
+    cout << "extract some elements fro the double variable vector" << endl;
+    retDataPtr = variable5d.getVarDataRange(4,10);
+    vector<double>* extrDblDataPtr = ((vector<double>*)retDataPtr);
+    cout << "returned recast vector size: " << (*extrDblDataPtr).size() << endl;
+    vector<double> extrDblData = (*extrDblDataPtr);
+    cout << "returned recast vector size: " << extrDblData.size() << endl;
+    for(unsigned int i = 0; i < extrDblData.size(); ++i) {
+        cout << extrDblData[i] << endl;
+    }
+    cout << endl;
     cout << endl << endl;
     cout << "  ************************************* " << endl <<endl;
     /** DATAFRAME TESTS */
     /** test default constructors*/
     cout << "  Dataframe SpecificTests "<< endl;
     cout << "  ----------------------- " <<endl << endl;
-    Dataframe dfTest;
+    dataframe dfTest;
     cout << "  dfTest an empty dataframe constructed, awaits meta-data and data variables " << endl<<endl;
 
     /** test full constructors */
@@ -232,7 +271,7 @@ int main(int argc, char **argv)
     /** UTILCSV TESTS*/
     string frmCSV ="./data/AirPassengersNoHeader.csv";
     bool hHeader = false;
-    UtilCSV Airpass(frmCSV, hHeader);
+    utilCSV Airpass(frmCSV, hHeader);
     cout << "  UtilCSV Unit Test Suite:" << endl;
     cout << "  =======================" << endl<< endl;
     cout << " Getting test data. . ."<< endl<<endl;
@@ -240,8 +279,8 @@ int main(int argc, char **argv)
     cout << " no. rows: " << Airpass.getNrows() << endl;
     Airpass.displayInternCSV();
     Airpass.displayColNames();
-    Airpass.displayDataStruct();
-    Airpass.writeCSV(Airpass.getDataStruct());
+    Airpass.displayStrDataStruct();
+    Airpass.writeCSV(Airpass.getStrDataStruct());
     vector<string> newCols;
         newCols.push_back("Date");
         newCols.push_back("Jan");
@@ -259,8 +298,10 @@ int main(int argc, char **argv)
     Airpass.setColNames(newCols);
     Airpass.displayInternCSV();
     Airpass.displayColNames();
-    Airpass.displayDataStruct();
-    Airpass.writeCSV(Airpass.getDataStruct(), "./data/newHeader.csv");
+    Airpass.displayStrDataStruct();
+    vector<vector<string> > sDS = Airpass.getStrDataStruct();
+    Airpass.makeDataFrame(sDS);
+    Airpass.writeCSV(Airpass.getStrDataStruct(), "./data/newHeader.csv");
     cout << endl << endl;
 
     /** Category data type TESTS */
