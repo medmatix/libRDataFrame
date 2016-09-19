@@ -9,7 +9,7 @@
  *
  * @author David York <david@debian2x8david>
  * @date Sunday September 4, 2016
- * @version 0.2
+ * @version 0.3
  *
  * @brief This is the main() module for Unit testing of the classes related to
  *        the RDataframe data type ( Dataframe )and relevant other code including

@@ -5,7 +5,7 @@
  *
  * @author David York <david@debian2x8david>
  * @date Sunday September 4, 2016
- * @version 0.375
+ * @version 0.4
  *
  * @brief Classes to provide C++ tools to manipulate CSV files,
  *       including reading and writing such files from and to disk

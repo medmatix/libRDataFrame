@@ -11,7 +11,7 @@
  *
  * @author David York
  * @date Sunday September 18, 2016
- * @version 0.7037
+ * @version 0.8
  *
  * @brief This creates a Node class to contain the data and meta-data of a
  *  variable. The Variable Nodes ultimately formpart of the Dataframe class
