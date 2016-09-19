@@ -222,10 +222,10 @@ using namespace std;
     }
 
     /** load data from a CSV into the dataframe,
-         *  @param csvFName name and path of the file to read and import the data from.
-         *  @param header a boolean indicating if the first row of CSV contains column names.
-         *  @return none (void)
-         */
+     *  @param csvFName name and path of the file to read and import the data from.
+     *  @param header a boolean indicating if the first row of CSV contains column names.
+     *  @return none (void)
+     */
     void dataframe::loadFromCSV(string csvFName, bool header) {
         // get the raw string data, vector<vector<string> > via UtilsCSV
         string frCSV = csvFName;
@@ -244,6 +244,27 @@ using namespace std;
         df.push_back(varsGrp);
         //end
     }
+
+    /** build a dataframe / Class of vector of variable columns of types string
+     *  as vector collection of contents of parsed strings of a specific
+     *  observation fields. */
+    vector<vector<string> > utilCSV::makeDataFrame (vector<vector<string> > intStrDStruct) {
+        vector<vector<string> > dframe;
+        vector<node> vars;
+        vector<string> elems;
+        /** columns populated with vars[0]:vars[intStrDStruct.size() */
+        for(unsigned int i = 0; i < intStrDStruct.size(); ++i) {
+            /**vars vectors populated with elements of intStrDStruct[i].size()*/
+            for(unsigned int j = 0; j < intStrDStruct[i].size(); ++j) {
+                cout << "("<< i << "," << j << ")" << " ";
+                elems[j]=(intStrDStruct[i])[j];
+                vars[i].push_back(elems[j])
+            }
+        cout << endl;
+        }
+        return dframe;
+    }
+
 
     /** save the dataframe contents (with or without a header line) to a
          *  CSV file,
