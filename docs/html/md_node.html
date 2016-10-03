@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.8"/>
-<title>libRDataFrame: node</title>
+<title>libRDataFrame: Node Class</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -77,13 +77,21 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- top -->
 <div class="header">
   <div class="headertitle">
-<div class="title">node </div>  </div>
+<div class="title">Node Class </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"></div></div><!-- contents -->
+<div class="textblock"><p>Creates a Node class to contain the data and meta-data of a variable</p>
+<p>The Variable Nodes ultimately formpart of the Dataframe class which is simply a vector of Nodes.</p>
+<p>It's data, is implemented as a pointer to a vector containing the data.</p>
+<p>In an Abstract sense, the Nodes are the variables, as contained for example in a vector of Nodes which is the Dataframe structure. The meta-data defines the variable fully and a void* pointer to a vector&lt;any&gt; containing the observation data of the::include "dataframe.cpp" variable.</p>
+<p>Class methods allow maintenance and manipulation of the variable it's data as to variable name, variable (data) type variable id (or position) within any containing structure and the observation data itself.</p>
+<div class="image">
+<img src="Dataframe_Class.svg"  alt="Class Diagram"/>
+</div>
+ </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Sep 19 2016 13:39:27 for libRDataFrame by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Oct 3 2016 17:26:35 for libRDataFrame by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>
