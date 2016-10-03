@@ -30,10 +30,10 @@ protected:
     int varNumber = 0;
     void* ptrData = nullptr;
     void* retPtr = nullptr;
-    std::vector<int>* ivData = nullptr;
-    std::vector<double>* dvData= nullptr;
-    std::vector<std::string>* svData= nullptr;
-    std::vector<int>* cvData = nullptr;
+    std::vector<int>* ipData = nullptr;
+    std::vector<double>* dpData= nullptr;
+    std::vector<std::string>* spData= nullptr;
+    std::vector<int>* cpData = nullptr;
     std::map<int, std::string> categorySet;
     std::vector<int> catVarData;
 public:
@@ -42,14 +42,19 @@ public:
     node(int r, std::string vName, std::string vType, int vNumber, std::map<int, std::string>  catSet);
     node(int r, std::string vName, std::string vType, int vNumber, void* pvData);
     void* getVarDataRange(int start, int ending);
+    void* getPtrData();
     void* getVarData();
     std::string getVarName();
     std::string getVarType();
     int getVarNumber();
     int getNRows();
+    std::vector<int> getNodeIntData ();
     std::vector<int> getNodeIntData (void* pData);
+    std::vector<double> getNodeDblData ();
     std::vector<double> getNodeDblData (void* pData);
+    std::vector<std::string> getNodeStrData ();
     std::vector<std::string> getNodeStrData (void* pData);
+    std::vector<int> getNodeCatData ();
     std::vector<int> getNodeCatData (void* pData);
     void setNodeContent(int r, std::string vName, std::string vType, int vNumber, void* pvData);
     void setVarDataRows(int r);

@@ -68,7 +68,7 @@ using namespace std;
         /** constructor with meta-data for variables and data as pointer to null
          *  @param r and integer value for the total number of rows of data at
          *           void* ptrData
-         *  @param vName a tring with the node and variable's name
+         *  @param vName a string with the node and variable's name
          *  @param vType a string recording the variable type stored by the
          *         node at pointer ptrData
          *  @param vNumber an integer value with the node number (position
@@ -179,13 +179,42 @@ using namespace std;
 		    }
         }
 
-        /** get all of the variable data from the node vector as a raw data
-         * requires variable type to fetch pointer
+        /** get pointer to variable data from the node vector
+         * requires knowledge of variable type to fetch pointer
          *  @param none
          *  @return a pointer to the start of memory containing the data vector
          */
-        void* node::getVarData() {
+        void* node::getPtrData() {
             return ptrData;
+        }
+
+        /** get all of the variable data from the node vector as a raw data
+         * requires variable type to cast pointer
+         *  @param none
+         *  @return a pointer to the start of memory containing the recast data vector
+         */
+        void* node::getVarData() {
+            if (varType == "int") {
+                vector<int> vData;
+                vData = getNodeIntData(ptrData);
+                return &vData;
+            }
+            if (varType == "double") {
+                vector<double> vData;
+                vData = getNodeDblData(ptrData);
+                return &vData;
+            }
+            if (varType == "string") {
+                vector<string> vData;
+                vData = getNodeStrData(ptrData);
+                return &vData;
+            }
+            if (varType == "categoryType") {
+                vector<int> vData;
+                vData = getNodeCatData(ptrData);
+                return &vData;
+            }
+            else return nullptr;
         }
 
         /** get the variable name (node meta-datum varName)
@@ -202,7 +231,8 @@ using namespace std;
          */
         string node::getVarType() {
             return varType;
-        }
+        } // ENDOF GETVARTYPE
+
 
         /** get the variable (position) number (node meta-datum varNumber)
          *  @param none
@@ -220,40 +250,55 @@ using namespace std;
             return nrows;
         }
 
-        /** get Node data as a vector of integers
-         *  @param pData a pointer to the Node data
-         *  @return ivData the pointer to a vector<int> with the Node data
+        /** get Node data as a vector of integers (OVERLOADED)
+         *  @param pData a pointer to the Node data (implied or stated)
+         *  @return ipData the pointer to a vector<int> with the Node data
          */
+        vector<int> node::getNodeIntData () {
+             ipData = (vector<int>*) ptrData;
+             return *ipData;
+        }
         vector<int> node::getNodeIntData (void* pData) {
-             ivData = (vector<int>*) ptrData;
-             return *ivData;
+             ipData = (vector<int>*) pData;
+             return *ipData;
         }
 
-        /** get Node data as a vector of doubles
-         *  @param pData a pointer to the Node data
-         *  @return ivData the pointer to a vector<double> with the Node data
+        /** get Node data as a vector of doubles (OVERLOADED)
+         *  @param pData a pointer to the Node data (implied or stated)
+         *  @return ipData the pointer to a vector<double> with the Node data
          */
+        vector<double> node::getNodeDblData () {
+            dpData = (vector<double>*) ptrData;
+            return *dpData;
+         }
         vector<double> node::getNodeDblData (void* pData) {
-            dvData = (vector<double>*) ptrData;
-            return *dvData;
+            dpData = (vector<double>*) pData;
+            return *dpData;
          }
 
-         /** get Node data as a vector of strings
-         *  @param pData a pointer to the Node data
-         *  @return ivData the pointer to a vector<string> with the Node data
+         /** get Node data as a vector of strings (OVERLOADED)
+         *  @param pData a pointer to the Node data (implied or stated)
+         *  @return ipData the pointer to a vector<string> with the Node data
          */
-         vector<string> node::getNodeStrData (void* pData) {
-             svData = (vector<string>*) ptrData;
-             return *svData;
+         vector<std::string> node::getNodeStrData () {
+             spData = (vector<string>*) ptrData;
+             return *spData;
+         }
+         vector<std::string> node::getNodeStrData (void* pData) {
+             spData = (vector<string>*) pData;
+             return *spData;
          }
 
-         /** get Node data as a vector of categories or factors
-         *  @param pData a pointer to the Node data
-         *  @return ivData the pointer to a vector<int> with the Node data
+         /** get Node data as a vector of categories or factors (OVERLOADED)
+         *  @param pData a pointer to the Node data (implied or stated)
+         *  @return ipData the pointer to a vector<int> with the Node data
          */
+         vector<int> node::getNodeCatData () {
+             cpData = (vector<int>*) ptrData;
+             return *cpData;}
          vector<int> node::getNodeCatData (void* pData) {
-             cvData = (vector<int>*) ptrData;
-             return *cvData;}
+             cpData = (vector<int>*) pData;
+             return *cpData;}
 
         //--------------------------------------------------------
         /** set the variable data, with a pointer to the data vector
@@ -296,13 +341,151 @@ using namespace std;
             varName = vName;
         }
 
-        /** set the variable type (node meta-datum varType)
+        /** set / reset the variable type (node meta-datum varType) and convert
+         *  vector and pointer type if necessary.
          *  @param the variable type (string)
          *  @return none (void)
          */
         void node::setVarType(string vType) {
+            if(varType != "") {
+            //initialize switches
+            int x,y;
+            if(varType == "int") x = 1;
+            if(varType == "double") x = 2;
+            if(varType == "string") x = 3;
+            if(varType == "categoryType") x = 4;
+            if(vType == "int") y = 1;
+            if(vType == "double") y = 2;
+            if(vType == "string") y = 3;
+            if(vType == "categoryType") y = 4;
+            std::vector<int> ivData;
+            std::vector<double> dvData;
+            std::vector<string> svData;
+            switch(x) {
+            case 1:{
+                ivData = getNodeIntData(ptrData);
+                switch (y) {
+                case 1:{
+                    //no change in vector type
+                     break;
+                }
+                case 2:{
+                    for (unsigned i =0; i < ivData.size(); ++i) {
+                        dvData[i] = (double)(ivData[i]);
+                    }
+                    dpData = &dvData;
+                    break;
+                }
+                case 3:{
+                    for (unsigned i =0; i < ivData.size(); ++i) {
+                        svData[i] = to_string(ivData[i]);
+                    }
+                    spData = &svData;
+                    break;
+                }
+                case 4:{
+                    for (unsigned i =0; i < ivData.size(); ++i) {
+                        //direct cast of int to category but though
+                        //no change in rank integer, check or add level name
+                    }
+                    break;
+                }
+                }
+                break;
+            }
+
+            case 2:{
+                std::vector<double> dvData = getNodeDblData(ptrData);
+                switch (y) {
+                case 1:{
+                    for (unsigned i =0; i < dvData.size(); ++i) {
+                        ivData[i] = (int)(dvData[i]);
+                    }
+                    ipData = &ivData;
+                    break;
+                }
+                case 2:{
+                    //no change in vector type
+                    break;
+                }
+                case 3:{
+                    for (unsigned i =0; i < dvData.size(); ++i) {
+                        svData[i] = to_string(dvData[i]);
+                    }
+                    spData = &svData;
+                    break;
+                }
+                case 4:{
+                    for (unsigned i =0; i < dvData.size(); ++i) {
+                        //direct cast of int to category but though
+                        //no change in rank integer, check or add level name
+                    }
+                    break;
+                }
+                }
+                break;
+            }
+
+            case 3:{
+                vector<string> svData = getNodeStrData(ptrData);
+                switch (y) {
+                case 1:{
+                    for (unsigned i =0; i < svData.size(); ++i) {
+                        ivData[i] = stoi(svData[i]);
+                    }
+                    ipData = &ivData;
+                    break;
+                }
+                case 2:{
+                    for (unsigned i =0; i < svData.size(); ++i) {
+                        dvData[i] = stod(svData[i]);
+                    }
+                    dpData = &dvData;
+                    break;
+                }
+                case 3:{
+                    //no change vector type
+                    break;
+                }
+                case 4:{
+                    for (unsigned i =0; i < svData.size(); ++i) {
+                        //direct cast of int to category but though
+                        //no change in rank integer, check or add level name
+                    }
+                    break;
+                }
+                }
+                break;
+            }
+
+            case 4:{
+                vector<int> cvData = getNodeCatData(ptrData);
+                //Need to update to initialize levelname vector too
+                switch (y) {
+                case 1:{
+                    for (unsigned i =0; i < cvData.size(); ++i) {}
+                        //direct cast of int to category but though
+                        //no change in rank integer, check or add level name
+                    break;
+                }
+                case 2:{
+                    for (unsigned i =0; i < cvData.size(); ++i) {}
+                    break;
+                }
+                case 3:{
+                    for (unsigned i =0; i < cvData.size(); ++i) {}
+                    break;
+                }
+                case 4:{}
+                    //no change in vector type
+                    break;
+                }
+                }
+                break;
+            }
+          }
             varType = vType;
-        }
+        } // ENDOF SETVARTYPE
 
         /** set the variable (position)number (node meta-datum varNumber)
          *  @param the variable type (string)
@@ -314,7 +497,7 @@ using namespace std;
 
         //-------------------------------------------------
         /** display the whole node, meta-data and data
-         *  @param none
+         *  @param nonefor (unsigned i =0; i < vData.size(); ++i) {}
          *  @return none (void)
          */
 		void node::displayNode() {
