@@ -17,6 +17,7 @@
 #include <cxxabi.h>
 #include <array>
 #include <initializer_list>
+#include <utility>
 #include <boost/any.hpp>
 
 #include "dataframe.hpp"
@@ -24,27 +25,29 @@
 #include "category.hpp"
 
 
-
-
 class categoryType{
 protected:
-    struct categoryLevel {
-    	std::string levelName;
-    	int levelRank;
-    };
+    int nRows;
+    int nLevels;
     std::string catVarName = "";
+    std::vector<int> dummySet;
     std::map<int, std::string> categorySet;
-    std::vector<int> catVarData;
+    std::vector<int> catVarRanks;
+    std::vector<std::vector<int> > dummyVarData;
 public:
     categoryType();
 	categoryType(std::string vName);
-    categoryType(std::string vName, int lRank, std::string lName = "");
-    categoryType(std::string vName, int lRank, void* ptrData, std::string lName = "");
-    categoryType(std::string vName, int lRank, std::vector<categoryLevel>* ptrData, std::string lName = "");
-	void setCategoryLevels(std::vector<std::string> levelStrList, std::vector<int> levelIntList);
-    void setCatVarData(std::vector<int> cData);
-    std::map<int, std::string> getCategoryLevels(std::vector<std::string> levelStrList, std::vector<int> levelIntList);
-    std::vector<int> getCatVarData();
+    categoryType(std::string vName, std::map<int,std::string> catSet);
+    categoryType(std::string vName, std::map<int,std::string> catSet, void* ptrData);
+    categoryType(std::string vName, void* ptrData);
+    categoryType(std::string vName, std::map<int,std::string> catSet, std::vector<int>* ptrData);
+
+	std::vector< std::vector<int> >getDummyVarData();
+    void setCategoryLevels(std::vector<std::string> levelStrList, std::vector<int> levelIntList);
+    void setCatVarRanks(std::vector<int> cData);
+    void setDummyVarData(std::vector< std::vector<int> > dummyVData);
+    std::map<int, std::string> getCategoryLevels();
+    std::vector<int> getCatVarRanks();
     void addLevNameToData(std::vector<int> cData);
 };
 

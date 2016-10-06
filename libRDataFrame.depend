@@ -11,7 +11,7 @@
 	<initializer_list>
 	<boost/any.hpp>
 
-1474306345 source:/home/david/Projects/Github_Repositories/git-cola/libRDataFrame/main.cpp
+1475778142 source:/home/david/Projects/Github_Repositories/git-cola/libRDataFrame/main.cpp
 	<cstdio>
 	<cstdlib>
 	<cctype>
@@ -61,7 +61,7 @@
 	<tuple>
 	<algorithm>
 
-1474237040 source:/home/david/Projects/Github_Repositories/git-cola/libRDataFrame/category.cpp
+1475770433 source:/home/david/Projects/Github_Repositories/git-cola/libRDataFrame/category.cpp
 	<string>
 	<map>
 	<typeinfo>
@@ -73,12 +73,13 @@
 	<map>
 	<array>
 	<initializer_list>
+	<utility>
 	<boost/any.hpp>
 	"node.hpp"
 	"dataframe.hpp"
 	"category.hpp"
 
-1474234841 /home/david/Projects/Github_Repositories/git-cola/libRDataFrame/node.hpp
+1475523372 /home/david/Projects/Github_Repositories/git-cola/libRDataFrame/node.hpp
 	<cstdio>
 	<cstdlib>
 	<cctype>
@@ -97,7 +98,7 @@
 	<initializer_list>
 	<boost/any.hpp>
 
-1474301924 /home/david/Projects/Github_Repositories/git-cola/libRDataFrame/dataframe.hpp
+1475776843 /home/david/Projects/Github_Repositories/git-cola/libRDataFrame/dataframe.hpp
 	<cstdio>
 	<cstdlib>
 	<cctype>
@@ -130,7 +131,7 @@
 	<initializer_list>
 	<boost/any.hpp>
 
-1474236666 /home/david/Projects/Github_Repositories/git-cola/libRDataFrame/category.hpp
+1475771244 /home/david/Projects/Github_Repositories/git-cola/libRDataFrame/category.hpp
 	<cstdio>
 	<cstdlib>
 	<cctype>
@@ -147,12 +148,13 @@
 	<cxxabi.h>
 	<array>
 	<initializer_list>
+	<utility>
 	<boost/any.hpp>
 	"dataframe.hpp"
 	"node.hpp"
 	"category.hpp"
 
-1474302478 source:/home/david/Projects/Github_Repositories/git-cola/libRDataFrame/dataframe.cpp
+1475773740 source:/home/david/Projects/Github_Repositories/git-cola/libRDataFrame/dataframe.cpp
 	<cstdio>
 	<cstdlib>
 	<cctype>
@@ -170,11 +172,11 @@
 	<array>
 	<initializer_list>
 	<boost/any.hpp>
-	"dataframe.hpp"
 	"node.hpp"
+	"dataframe.hpp"
 	"utilCSV.hpp"
 
-1474301451 source:/home/david/Projects/Github_Repositories/git-cola/libRDataFrame/node.cpp
+1475773799 source:/home/david/Projects/Github_Repositories/git-cola/libRDataFrame/node.cpp
 	<cstdio>
 	<cstdlib>
 	<cctype>
@@ -194,7 +196,7 @@
 	<boost/any.hpp>
 	"node.hpp"
 
-1474303840 source:/home/david/Projects/Github_Repositories/git-cola/libRDataFrame/utilCSV.cpp
+1475778523 source:/home/david/Projects/Github_Repositories/git-cola/libRDataFrame/utilCSV.cpp
 	<cstdio>
 	<cstdlib>
 	<cctype>

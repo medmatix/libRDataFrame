@@ -49,8 +49,8 @@
 #include <initializer_list>
 #include <boost/any.hpp>
 
-#include "dataframe.hpp"
 #include "node.hpp"
+#include "dataframe.hpp"
 #include "utilCSV.hpp"
 
 using namespace std;
@@ -206,6 +206,20 @@ using namespace std;
 
     }
 
+    /**
+     * reset dataframe from external vector<node>
+     * an already constructed vector of nodes (variables)
+     * @param dframe an intact  vector of nodes from any source
+     *
+     */
+    void dataframe::setDataframe(vector< node> dframe) {
+        df = dframe;
+    }
+
+    void dataframe::setDfName(string dName){
+        dfName = dName;
+    }
+
     /** convert dataframe to a vector of strings
      *
      *
@@ -249,19 +263,19 @@ using namespace std;
     }
 
     /** build a dataframe / Class of vector of variable columns of types string
-     *  as vector collection of contents of parsed strings of a specific
+     *  as vector collection of contents from parsed strings of a specific
      *  observation fields. */
     vector<vector<string> > makeDataFrame (vector<vector<string> > internStrDStruct) {
         vector<vector<string> > dframe;
         vector<node> vars;
         vector<string> elems;
-        /** columns populated with vars[0]:vars[intStrDStruct.size() */
+
+        /** columns populated with vars[0]:vars[intStrDStruct.size()*/
         for(unsigned int i = 0; i < internStrDStruct.size(); ++i) {
             /**vars vectors populated with elements of intStrDStruct[i].size()*/
             for(unsigned int j = 0; j < internStrDStruct[i].size(); ++j) {
                 cout << "("<< i << "," << j << ")" << " ";
                 elems[j]=(internStrDStruct[i])[j];
-                //vars[i].push_back(elems[j])
             }
         cout << endl;
         }

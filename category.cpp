@@ -7,7 +7,7 @@
  *
  * @author David York
  * @date Friday September 9, 2016
- * @version 0.303
+ * @version 0.310
  *
  * @brief categoryType creates and provides utilities for a categorical or factor
  * datatype (similar to R's factor type). The utilies allow construction, and
@@ -29,7 +29,7 @@
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
+ * GNU General Public License for more details.vector<int> categoryType::getCatVarRanks()
  *
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
@@ -50,6 +50,7 @@
 #include <map>
 #include <array>
 #include <initializer_list>
+#include <utility>
 #include <boost/any.hpp>
 
 #include "node.hpp";
@@ -69,17 +70,21 @@ using namespace std;
  * name (a string) and an integer ranking, collected into a vector of these
 * pairs each an observation from a set */
 
-    /** structure for each data point observed as a factory of categorical type */
-    struct categoryLevel {     //? change to multi-pair<int, string> types?
-    	/** name of data level point */
-    	string levelName;
-        /** ranks for that point */
-    	int levelRank;
-    };
+    /** size of dummy set
+     */
+    int nRows = 0;
+
+    /** size of dummy set
+     */
+    int nLevels = 0;
 
     /** variable for this category variable (also represented by the object
      * name it was created with */
     string catVarName = "";
+
+    /**
+     */
+    vector<int> dummySet;
 
     /** map of categorical pairs, the meta-data of the variable storing
      * the categories. A level number (int) and a level name of title (string)
@@ -91,7 +96,8 @@ using namespace std;
      *  obtained as needed  from the map for use in table and plot output.
      *
      */
-    vector<int> catVarData;
+    vector<int> catVarRanks;
+
 
 
     /** Constructors */
@@ -107,7 +113,7 @@ using namespace std;
     }
 
     /** constructor with every thing except data */
-    categoryType::categoryType(string vName, int lRank, string lName) {
+    categoryType::categoryType(string vName, map<int,std::string> catSet) {
 
    }
 
@@ -115,17 +121,42 @@ using namespace std;
      * this data will need to be parsed and sorted the data then group into
      * categories
      */
-    categoryType::categoryType(string vName, int lRank, void* ptrData, string lName){
+    categoryType::categoryType(string vName, map<int,std::string> catSet, void* ptrData){
 
     }
-    /**constructor with metadata and passed a fully organized vector of pairs
+
+    /**constructor with some metadata (without category mapping and passed a pointer to generic data
+     * this data will need to be parsed and sorted the data then group into
+     * categories
+     */
+    categoryType::categoryType(string vName, void* ptrData){
+
+    }
+
+    /**constructor with metadata and passed a fully organized vector of ranks
      * this is already pre-parsed and sorted into categories usually from the data
      * source file*/
-    categoryType::categoryType(string vName, int lRank, vector<categoryLevel>* ptrData, string lName){
+    categoryType::categoryType(string vName, map<int,std::string> catSet, vector<int>* ptrData){
 
     }
 
     /** member functions - class methods */
+    /**
+     * get dummy variable representation of varData
+     * @return
+     */
+    vector< vector<int> > getDummyVarData() {
+            vector< vector<int> > dummyVarData;
+            vector<int> dummyLevel(nLevels,0);
+            vector<int> dummyRow;
+            dummyVarData.push_back(dummyRow);
+            for (unsigned int i = 1; i< nLevels;++i) {
+                dummyRow = dummyLevel;
+                dummyRow.at(i) = 1;
+                dummyVarData.push_back(dummyRow);
+            }
+            return dummyVarData;
+     }
 
 	 /** set or amend map of category levels in vector<categoryLevels>
 	  *  @param levelStrList a string vector, blank names must be held with
@@ -135,19 +166,27 @@ using namespace std;
 	  *  @return void  the intern map of the categories is (re)populated
      */
 	void categoryType::setCategoryLevels(vector<string> levelStrList, vector<int> levelIntList) {
-	    categoryLevel catL;
-        catL.levelName = "one";
-        catL.levelRank = 1;
-        categorySet[catL.levelRank] = catL.levelName;
-        cout << categorySet[1]<< endl;
+	    //categoryLevel catL;
+        //catL.levelName = "one";
+        //catL.levelRank = 1;
+        //categorySet[catL.levelRank] = catL.levelName;
+        //cout << categorySet[1]<< endl;
 	 }
 
 	 /** set the data vector values
 	  *  @param vector<int> vector of values as the categorized observations
 	  *  @return void  values are read into the carVarData vector.
       */
-     void categoryType::setCatVarData(vector<int> cData) {
-         catVarData = cData;
+     void categoryType::setCatVarRanks(vector<int> cData) {
+         catVarRanks = cData;
+     }
+
+     /**
+      * set or build the dummy variable set for the categorical data
+      * @param
+      * @return
+      */
+     void categoryType::setDummyVarData(vector< vector<int> > dummyVData) {
      }
 
      /**
@@ -155,7 +194,7 @@ using namespace std;
 	  *
 	  *  @return category set of levels  the intern map of the categories is (re)populated
      */
-	 map<int, string> categoryType::getCategoryLevels(vector<string> levelStrList, vector<int> levelIntList) {
+	 map<int, string> categoryType::getCategoryLevels() {
 	     return  categorySet;
 	 }
 
@@ -163,8 +202,8 @@ using namespace std;
 	  *  @param vector<int> vector of values as the categorized observations
 	  *  @return void  values are read into the carVarData vector.
       */
-     vector<int> categoryType::getCatVarData() {
-         return catVarData;
+     vector<int> categoryType::getCatVarRanks() {
+         return catVarRanks;
 
      }
 

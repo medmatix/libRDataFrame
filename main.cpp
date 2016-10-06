@@ -267,7 +267,7 @@ int main(int argc, char **argv)
 
     /** UTILCSV TESTS*/
     string frmCSV ="./data/AirPassengersNoHeader.csv";
-    bool hHeader = false;
+    bool hHeader = true;
     utilCSV Airpass(frmCSV, hHeader);
     cout << "  UtilCSV Unit Test Suite:" << endl;
     cout << "  =======================" << endl<< endl;
@@ -300,6 +300,14 @@ int main(int argc, char **argv)
     vector<vector<string> > sDS = Airpass.getStrDataStruct();
     Airpass.writeCSV(Airpass.getStrDataStruct(), "./data/newHeader.csv");
     cout << endl << endl;
+
+
+    // Now make a df from the string data structure and stor in a data frame
+    dataframe dfAirpass("dfAirPass", 11, 13);
+    cout << "  New dataframe:  " << dfAirpass.getDataFrameName() << endl<< endl;
+    cout << "  old string frame: again " << endl;
+    Airpass.displayStrDataStruct();
+    //dfAirpass.makeDataFrame(sDS);
 
     /** Category data type TESTS */
     cout << "  Category type Unit Test Suite:" << endl;
