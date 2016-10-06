@@ -23,7 +23,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">libRDataFrame
-   &#160;<span id="projectnumber">0.8</span>
+   &#160;<span id="projectnumber">0.81</span>
    </div>
    <div id="projectbrief">A library with R style datatypes and associated utilities</div>
   </td>
@@ -126,8 +126,13 @@ std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bott
 <tr class="separator:a5506aeae8d285798b422d01fdee751a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0a31173fae17924b8f571564a0cd3c09"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdataframe.html#a0a31173fae17924b8f571564a0cd3c09">addObsRow</a> (void *obsRow)</td></tr>
 <tr class="separator:a0a31173fae17924b8f571564a0cd3c09"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a732127b8fdc8693c349877e359b04c1e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a732127b8fdc8693c349877e359b04c1e"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setDfName</b> (std::string)</td></tr>
+<tr class="separator:a732127b8fdc8693c349877e359b04c1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afcb9197e0e46505d59e54d73e0492261"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdataframe.html#afcb9197e0e46505d59e54d73e0492261">setNode</a> (<a class="el" href="classnode.html">node</a> varNode, int vNumber)</td></tr>
 <tr class="separator:afcb9197e0e46505d59e54d73e0492261"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a854f5963f3e16238dbf719658bcea21b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdataframe.html#a854f5963f3e16238dbf719658bcea21b">setDataframe</a> (std::vector&lt; <a class="el" href="classnode.html">node</a> &gt; dframe)</td></tr>
+<tr class="separator:a854f5963f3e16238dbf719658bcea21b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa58710c61cae6142e5e6593a7cd31978"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa58710c61cae6142e5e6593a7cd31978"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>convertDfToVStrings</b> (<a class="el" href="classdataframe.html">dataframe</a> df)</td></tr>
 <tr class="separator:aa58710c61cae6142e5e6593a7cd31978"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -645,6 +650,28 @@ std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bott
 
 </div>
 </div>
+<a class="anchor" id="a854f5963f3e16238dbf719658bcea21b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void dataframe::setDataframe </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="classnode.html">node</a> &gt;&#160;</td>
+          <td class="paramname"><em>dframe</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>reset dataframe from external vector&lt;node&gt; an already constructed vector of nodes (variables) </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dframe</td><td>an intact vector of nodes from any source </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a class="anchor" id="afcb9197e0e46505d59e54d73e0492261"></a>
 <div class="memitem">
 <div class="memproto">
@@ -708,7 +735,7 @@ std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bott
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Oct 3 2016 17:26:35 for libRDataFrame by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Oct 6 2016 14:47:12 for libRDataFrame by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

@@ -23,7 +23,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">libRDataFrame
-   &#160;<span id="projectnumber">0.8</span>
+   &#160;<span id="projectnumber">0.81</span>
    </div>
    <div id="projectbrief">A library with R style datatypes and associated utilities</div>
   </td>
@@ -84,7 +84,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="classcategory_type-members.html">List of all members</a>  </div>
@@ -93,11 +92,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcategory_type_1_1category_level.html">categoryLevel</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a9a5a45745986bc3c6c8b064e8230ffd3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcategory_type.html#a9a5a45745986bc3c6c8b064e8230ffd3">categoryType</a> ()</td></tr>
@@ -105,37 +99,57 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a0a0a00f5bb0e96a7f73919aabfa809e5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0a0a00f5bb0e96a7f73919aabfa809e5"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>categoryType</b> (std::string vName)</td></tr>
 <tr class="separator:a0a0a00f5bb0e96a7f73919aabfa809e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a99cfd7a2a337aa7de34849e226ee524a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a99cfd7a2a337aa7de34849e226ee524a"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>categoryType</b> (std::string vName, int lRank, std::string lName=&quot;&quot;)</td></tr>
-<tr class="separator:a99cfd7a2a337aa7de34849e226ee524a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a35888485b4db73be68c4fee65b6bf7b0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a35888485b4db73be68c4fee65b6bf7b0"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>categoryType</b> (std::string vName, int lRank, void *ptrData, std::string lName=&quot;&quot;)</td></tr>
-<tr class="separator:a35888485b4db73be68c4fee65b6bf7b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1ae89a32beb7984356ee025fe1a0e248"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1ae89a32beb7984356ee025fe1a0e248"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>categoryType</b> (std::string vName, int lRank, std::vector&lt; <a class="el" href="structcategory_type_1_1category_level.html">categoryLevel</a> &gt; *ptrData, std::string lName=&quot;&quot;)</td></tr>
-<tr class="separator:a1ae89a32beb7984356ee025fe1a0e248"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad788ab71cead80344037a244abf4921f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad788ab71cead80344037a244abf4921f"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>categoryType</b> (std::string vName, std::map&lt; int, std::string &gt; catSet)</td></tr>
+<tr class="separator:ad788ab71cead80344037a244abf4921f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d230198b3dc3501492269e59333bb78"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4d230198b3dc3501492269e59333bb78"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>categoryType</b> (std::string vName, std::map&lt; int, std::string &gt; catSet, void *ptrData)</td></tr>
+<tr class="separator:a4d230198b3dc3501492269e59333bb78"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a96143e714f2f4f116edb33a4bb828482"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a96143e714f2f4f116edb33a4bb828482"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>categoryType</b> (std::string vName, void *ptrData)</td></tr>
+<tr class="separator:a96143e714f2f4f116edb33a4bb828482"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a917bf664d58657d577610576f4429b31"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a917bf664d58657d577610576f4429b31"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>categoryType</b> (std::string vName, std::map&lt; int, std::string &gt; catSet, std::vector&lt; int &gt; *ptrData)</td></tr>
+<tr class="separator:a917bf664d58657d577610576f4429b31"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae3e24140096e272bbb2396f17e15ff2d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae3e24140096e272bbb2396f17e15ff2d"></a>
+std::vector&lt; std::vector&lt; int &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getDummyVarData</b> ()</td></tr>
+<tr class="separator:ae3e24140096e272bbb2396f17e15ff2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a08fb7eeb4e94a5ad94523314998393b8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcategory_type.html#a08fb7eeb4e94a5ad94523314998393b8">setCategoryLevels</a> (std::vector&lt; std::string &gt; levelStrList, std::vector&lt; int &gt; levelIntList)</td></tr>
 <tr class="separator:a08fb7eeb4e94a5ad94523314998393b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeeb89fabc1f3678264c9bec964cf855d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcategory_type.html#aeeb89fabc1f3678264c9bec964cf855d">setCatVarData</a> (std::vector&lt; int &gt; cData)</td></tr>
-<tr class="separator:aeeb89fabc1f3678264c9bec964cf855d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2896a23df6e9212f4bda19e5246effc8"><td class="memItemLeft" align="right" valign="top">std::map&lt; int, std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcategory_type.html#a2896a23df6e9212f4bda19e5246effc8">getCategoryLevels</a> (std::vector&lt; std::string &gt; levelStrList, std::vector&lt; int &gt; levelIntList)</td></tr>
-<tr class="separator:a2896a23df6e9212f4bda19e5246effc8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4bb274345c82eb468a8f5ce84749f473"><td class="memItemLeft" align="right" valign="top">std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcategory_type.html#a4bb274345c82eb468a8f5ce84749f473">getCatVarData</a> ()</td></tr>
-<tr class="separator:a4bb274345c82eb468a8f5ce84749f473"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad2202f0340edf73f0fd1b546e36e01d8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcategory_type.html#ad2202f0340edf73f0fd1b546e36e01d8">setCatVarRanks</a> (std::vector&lt; int &gt; cData)</td></tr>
+<tr class="separator:ad2202f0340edf73f0fd1b546e36e01d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9231cf9f9fa2d065385136c3aeaf434d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcategory_type.html#a9231cf9f9fa2d065385136c3aeaf434d">setDummyVarData</a> (std::vector&lt; std::vector&lt; int &gt; &gt; dummyVData)</td></tr>
+<tr class="separator:a9231cf9f9fa2d065385136c3aeaf434d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab36c772b944d6dc358584cdefa3d56b7"><td class="memItemLeft" align="right" valign="top">std::map&lt; int, std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcategory_type.html#ab36c772b944d6dc358584cdefa3d56b7">getCategoryLevels</a> ()</td></tr>
+<tr class="separator:ab36c772b944d6dc358584cdefa3d56b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a70594fd444584b9b84593507e5feba0b"><td class="memItemLeft" align="right" valign="top">std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcategory_type.html#a70594fd444584b9b84593507e5feba0b">getCatVarRanks</a> ()</td></tr>
+<tr class="separator:a70594fd444584b9b84593507e5feba0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3d25b28d9a14bb327447afffb51bd96d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcategory_type.html#a3d25b28d9a14bb327447afffb51bd96d">addLevNameToData</a> (std::vector&lt; int &gt; cData)</td></tr>
 <tr class="separator:a3d25b28d9a14bb327447afffb51bd96d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
+<tr class="memitem:ac341797af964a42efd630963cfd93410"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac341797af964a42efd630963cfd93410"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>nRows</b></td></tr>
+<tr class="separator:ac341797af964a42efd630963cfd93410"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab61654a1d0c187c18c54d9753c4a2f09"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab61654a1d0c187c18c54d9753c4a2f09"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>nLevels</b></td></tr>
+<tr class="separator:ab61654a1d0c187c18c54d9753c4a2f09"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aee63ae913b65735f90ae21b91a82bd1c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aee63ae913b65735f90ae21b91a82bd1c"></a>
 std::string&#160;</td><td class="memItemRight" valign="bottom"><b>catVarName</b> = &quot;&quot;</td></tr>
 <tr class="separator:aee63ae913b65735f90ae21b91a82bd1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a394484121cf05cfd94311f9f85219afa"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a394484121cf05cfd94311f9f85219afa"></a>
+std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>dummySet</b></td></tr>
+<tr class="separator:a394484121cf05cfd94311f9f85219afa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af7b4246c383c339bd2711d979ad299d9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af7b4246c383c339bd2711d979ad299d9"></a>
 std::map&lt; int, std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>categorySet</b></td></tr>
 <tr class="separator:af7b4246c383c339bd2711d979ad299d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a50b23836faa051a43670a3c3590e79ca"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a50b23836faa051a43670a3c3590e79ca"></a>
-std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>catVarData</b></td></tr>
-<tr class="separator:a50b23836faa051a43670a3c3590e79ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc10e7af92015bf63a5eda694d36860a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abc10e7af92015bf63a5eda694d36860a"></a>
+std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>catVarRanks</b></td></tr>
+<tr class="separator:abc10e7af92015bf63a5eda694d36860a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af3e23d12d533651cd8a8c5d4dfbc0090"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af3e23d12d533651cd8a8c5d4dfbc0090"></a>
+std::vector&lt; std::vector&lt; int &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>dummyVarData</b></td></tr>
+<tr class="separator:af3e23d12d533651cd8a8c5d4dfbc0090"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a9a5a45745986bc3c6c8b064e8230ffd3"></a>
@@ -178,26 +192,15 @@ std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>c
 
 </div>
 </div>
-<a class="anchor" id="a2896a23df6e9212f4bda19e5246effc8"></a>
+<a class="anchor" id="ab36c772b944d6dc358584cdefa3d56b7"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">map&lt; int, string &gt; categoryType::getCategoryLevels </td>
           <td>(</td>
-          <td class="paramtype">std::vector&lt; std::string &gt;&#160;</td>
-          <td class="paramname"><em>levelStrList</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
-          <td class="paramtype">std::vector&lt; int &gt;&#160;</td>
-          <td class="paramname"><em>levelIntList</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -206,12 +209,12 @@ std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>c
 
 </div>
 </div>
-<a class="anchor" id="a4bb274345c82eb468a8f5ce84749f473"></a>
+<a class="anchor" id="a70594fd444584b9b84593507e5feba0b"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">vector&lt; int &gt; categoryType::getCatVarData </td>
+          <td class="memname">vector&lt; int &gt; categoryType::getCatVarRanks </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -251,7 +254,7 @@ std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>c
         </tr>
       </table>
 </div><div class="memdoc">
-<p>member functions - class methods set or amend map of category levels in vector&lt;categoryLevels&gt; </p><dl class="params"><dt>Parameters</dt><dd>
+<p>set or amend map of category levels in vector&lt;categoryLevels&gt; </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">levelStrList</td><td>a string vector, blank names must be held with a ' ' space. </td></tr>
     <tr><td class="paramname">levelIntList</td><td>an integer vector integers from 1 to n where n is the total number of levels </td></tr>
@@ -262,12 +265,12 @@ std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>c
 
 </div>
 </div>
-<a class="anchor" id="aeeb89fabc1f3678264c9bec964cf855d"></a>
+<a class="anchor" id="ad2202f0340edf73f0fd1b546e36e01d8"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void categoryType::setCatVarData </td>
+          <td class="memname">void categoryType::setCatVarRanks </td>
           <td>(</td>
           <td class="paramtype">std::vector&lt; int &gt;&#160;</td>
           <td class="paramname"><em>cData</em></td><td>)</td>
@@ -285,6 +288,28 @@ std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>c
 
 </div>
 </div>
+<a class="anchor" id="a9231cf9f9fa2d065385136c3aeaf434d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void categoryType::setDummyVarData </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; std::vector&lt; int &gt; &gt;&#160;</td>
+          <td class="paramname"><em>dummyVData</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>set or build the dummy variable set for the categorical data </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname"></td><td>return </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="category_8hpp_source.html">category.hpp</a></li>
 <li><a class="el" href="category_8cpp.html">category.cpp</a></li>
@@ -292,7 +317,7 @@ std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>c
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Oct 3 2016 17:26:35 for libRDataFrame by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Oct 6 2016 14:47:11 for libRDataFrame by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

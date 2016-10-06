@@ -23,7 +23,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">libRDataFrame
-   &#160;<span id="projectnumber">0.8</span>
+   &#160;<span id="projectnumber">0.81</span>
    </div>
    <div id="projectbrief">A library with R style datatypes and associated utilities</div>
   </td>
@@ -94,19 +94,26 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <tr bgcolor="#f0f0f0"><td class="entry"><b>categorySet</b> (defined in <a class="el" href="classcategory_type.html">categoryType</a>)</td><td class="entry"><a class="el" href="classcategory_type.html">categoryType</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classcategory_type.html#a9a5a45745986bc3c6c8b064e8230ffd3">categoryType</a>()</td><td class="entry"><a class="el" href="classcategory_type.html">categoryType</a></td><td class="entry"></td></tr>
   <tr bgcolor="#f0f0f0"><td class="entry"><b>categoryType</b>(std::string vName) (defined in <a class="el" href="classcategory_type.html">categoryType</a>)</td><td class="entry"><a class="el" href="classcategory_type.html">categoryType</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>categoryType</b>(std::string vName, int lRank, std::string lName=&quot;&quot;) (defined in <a class="el" href="classcategory_type.html">categoryType</a>)</td><td class="entry"><a class="el" href="classcategory_type.html">categoryType</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>categoryType</b>(std::string vName, int lRank, void *ptrData, std::string lName=&quot;&quot;) (defined in <a class="el" href="classcategory_type.html">categoryType</a>)</td><td class="entry"><a class="el" href="classcategory_type.html">categoryType</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>categoryType</b>(std::string vName, int lRank, std::vector&lt; categoryLevel &gt; *ptrData, std::string lName=&quot;&quot;) (defined in <a class="el" href="classcategory_type.html">categoryType</a>)</td><td class="entry"><a class="el" href="classcategory_type.html">categoryType</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>catVarData</b> (defined in <a class="el" href="classcategory_type.html">categoryType</a>)</td><td class="entry"><a class="el" href="classcategory_type.html">categoryType</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>categoryType</b>(std::string vName, std::map&lt; int, std::string &gt; catSet) (defined in <a class="el" href="classcategory_type.html">categoryType</a>)</td><td class="entry"><a class="el" href="classcategory_type.html">categoryType</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>categoryType</b>(std::string vName, std::map&lt; int, std::string &gt; catSet, void *ptrData) (defined in <a class="el" href="classcategory_type.html">categoryType</a>)</td><td class="entry"><a class="el" href="classcategory_type.html">categoryType</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>categoryType</b>(std::string vName, void *ptrData) (defined in <a class="el" href="classcategory_type.html">categoryType</a>)</td><td class="entry"><a class="el" href="classcategory_type.html">categoryType</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>categoryType</b>(std::string vName, std::map&lt; int, std::string &gt; catSet, std::vector&lt; int &gt; *ptrData) (defined in <a class="el" href="classcategory_type.html">categoryType</a>)</td><td class="entry"><a class="el" href="classcategory_type.html">categoryType</a></td><td class="entry"></td></tr>
   <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>catVarName</b> (defined in <a class="el" href="classcategory_type.html">categoryType</a>)</td><td class="entry"><a class="el" href="classcategory_type.html">categoryType</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr><td class="entry"><a class="el" href="classcategory_type.html#a2896a23df6e9212f4bda19e5246effc8">getCategoryLevels</a>(std::vector&lt; std::string &gt; levelStrList, std::vector&lt; int &gt; levelIntList)</td><td class="entry"><a class="el" href="classcategory_type.html">categoryType</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classcategory_type.html#a4bb274345c82eb468a8f5ce84749f473">getCatVarData</a>()</td><td class="entry"><a class="el" href="classcategory_type.html">categoryType</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>catVarRanks</b> (defined in <a class="el" href="classcategory_type.html">categoryType</a>)</td><td class="entry"><a class="el" href="classcategory_type.html">categoryType</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>dummySet</b> (defined in <a class="el" href="classcategory_type.html">categoryType</a>)</td><td class="entry"><a class="el" href="classcategory_type.html">categoryType</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>dummyVarData</b> (defined in <a class="el" href="classcategory_type.html">categoryType</a>)</td><td class="entry"><a class="el" href="classcategory_type.html">categoryType</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classcategory_type.html#ab36c772b944d6dc358584cdefa3d56b7">getCategoryLevels</a>()</td><td class="entry"><a class="el" href="classcategory_type.html">categoryType</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classcategory_type.html#a70594fd444584b9b84593507e5feba0b">getCatVarRanks</a>()</td><td class="entry"><a class="el" href="classcategory_type.html">categoryType</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>getDummyVarData</b>() (defined in <a class="el" href="classcategory_type.html">categoryType</a>)</td><td class="entry"><a class="el" href="classcategory_type.html">categoryType</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>nLevels</b> (defined in <a class="el" href="classcategory_type.html">categoryType</a>)</td><td class="entry"><a class="el" href="classcategory_type.html">categoryType</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>nRows</b> (defined in <a class="el" href="classcategory_type.html">categoryType</a>)</td><td class="entry"><a class="el" href="classcategory_type.html">categoryType</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
   <tr><td class="entry"><a class="el" href="classcategory_type.html#a08fb7eeb4e94a5ad94523314998393b8">setCategoryLevels</a>(std::vector&lt; std::string &gt; levelStrList, std::vector&lt; int &gt; levelIntList)</td><td class="entry"><a class="el" href="classcategory_type.html">categoryType</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classcategory_type.html#aeeb89fabc1f3678264c9bec964cf855d">setCatVarData</a>(std::vector&lt; int &gt; cData)</td><td class="entry"><a class="el" href="classcategory_type.html">categoryType</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classcategory_type.html#ad2202f0340edf73f0fd1b546e36e01d8">setCatVarRanks</a>(std::vector&lt; int &gt; cData)</td><td class="entry"><a class="el" href="classcategory_type.html">categoryType</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classcategory_type.html#a9231cf9f9fa2d065385136c3aeaf434d">setDummyVarData</a>(std::vector&lt; std::vector&lt; int &gt; &gt; dummyVData)</td><td class="entry"><a class="el" href="classcategory_type.html">categoryType</a></td><td class="entry"></td></tr>
 </table></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Oct 3 2016 17:26:35 for libRDataFrame by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Oct 6 2016 14:47:11 for libRDataFrame by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>
