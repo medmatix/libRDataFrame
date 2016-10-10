@@ -28,9 +28,6 @@
  *  as to variable name, variable (data) type variable id (or position) within
  *  any containing structure and the observation data itself.
  *
- *
- *
- *
  * &copy; 2016 David York
  */
 #include <cstdio>
@@ -62,7 +59,6 @@ using namespace std;
             varType = "";
             varNumber = 0;
             ptrData = nullptr;
-
         }
 
         /** constructor with meta-data for variables and data as pointer to null
@@ -98,6 +94,16 @@ using namespace std;
             varType = vType;
             varNumber = vNumber;
             ptrData = nullptr;
+        }
+
+        /** constructor meta-data blank, add vector pointer to data only
+         * @param void* pvData pointer to the vector of data
+         */
+        node::node(void* pvData) {
+            varName = "";
+            varType = "";
+            varNumber = 0;
+            ptrData = pvData;
         }
 
         /** constructor all meta data for variable and data as void pointer to

@@ -63,7 +63,7 @@ using namespace std;
     utilCSV::utilCSV() {}
 
     // Full constructor
-    utilCSV::utilCSV(string frCSV, bool header, int rtoline) {
+    utilCSV::utilCSV(string frCSV, bool header, int rtoline) {        vector<vector<string> > fetchedCSV;
         fromCSVFile = frCSV;
         hasHeader = header;
         readToLine = 0;         // has no effect yet (ie. 0 = 'all')
@@ -131,17 +131,17 @@ using namespace std;
     }
 
     /** Accessor-get current column names*/
-    vector<string> utilCSV::getColNames() {
-        return colNames;
-    }
+    vector<string> utilCSV::getColNames() {return colNames;}
+
+    /** Accessor get column data types (if provided) */
+    vector<string> utilCSV::getColTypes() { return colTypes;}
 
     /** Accessor-return the uploaded CSV file to caller */
     vector<string> utilCSV::getCVS() {return csvToParse;}
 
     /** Accessor-return the data structure (table) to caller */
-    vector<vector<string> > utilCSV::getStrDataStruct() {
-        return strDataStruct;
-    }
+    vector<vector<string> > utilCSV::getStrDataStruct() {return strDataStruct;}
+
 
     /** read a stated CSV file from disk */
     vector<string> utilCSV::readCSV(string iFileN) {

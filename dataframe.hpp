@@ -31,8 +31,10 @@ protected:
     std::string dfName;
     node varsGrp;
     std::vector<node> df;
+    std::vector<std::vector<std::string> > fetchedStrDataStruct;
     std::vector<std::string> colNames;
-    std::vector<std::string> varTypes;
+    std::vector<std::string> colTypes;
+
     void* obsDataFrame = nullptr;
     std::vector<std::string> obsRowNames;
 public:
@@ -49,20 +51,24 @@ public:
     std::vector<node> getDataframe();
     std::string getDataFrameName();
     void* getObs(int rowNumber);
+    std::vector<std::string>getColTypes();
+    std::vector<std::string>getColNames();
+    void setColTypes(std::vector<std::string> cTypes);
+    void setColNames(std::vector<std::string> cNames);
     node getNode(std::string vName= "", int vNumber = 0);
     std::vector<std::string> getRangeOfRows(int start, int ending);
     void* getDataRange(int r1,int c1,int r2, int c2);
-    std::vector<std::string> getVarNames();
-    std::vector<std::string> getVarTypes();
     void addObsRow(void* obsRow);
     void setDfName(std::string);
     void setNode(node varNode, int vNumber);
     void setDataframe(std::vector<node> dframe);
     void convertDfToVStrings(dataframe df);
+    std::vector<std::string> readRowsSDS(std::vector<std::vector<std::string> > strDStruct,int nCSVRows, int colNumber);
     void convertParsedVStrtoDf(std::vector< std::vector<std::string> > parsedVVS);
-    void loadFromCSV(std::string csvFName, bool header);
+    void loadFromCSV(std::string csvFName, bool header, std::vector<std::string> strVarTypes);
     std::vector<std::vector<std::string> > makeDataFrame (std::vector<std::vector<std::string> > intStrDStruct);
     void saveToCSV(std::string csvFName);
+    void convertCSVtoDF(std::vector<std::vector<std::string> > strCSVStruct, int nCSVRows, int nCSVCols);
     void displayDataframe();
     void displayNodeData(int position=0, std::string varName="");
     std::string toStringStream();

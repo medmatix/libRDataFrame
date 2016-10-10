@@ -305,13 +305,21 @@ int main(int argc, char **argv)
     // Now make a df from the string data structure and stor in a data frame
     dataframe dfAirpass("dfAirPass", 11, 13);
     cout << "  New dataframe:  " << dfAirpass.getDataFrameName() << endl<< endl;
-    cout << "  old string frame: again " << endl;
+    cout << "  old string frame: again " << endl << endl<< endl;
     Airpass.displayStrDataStruct();
-    //dfAirpass.makeDataFrame(sDS);
+    vector<vector<string> > sDStruct = sDS;
+    // read nR = 11 elements into column colNumber = 12
+    dfAirpass.readRowsSDS(sDS, 11, 5);
+    // read all 11 elements of all 12 columns
+    dfAirpass.convertCSVtoDF(sDStruct, 11, 13);
+
+
 
     /** Category data type TESTS */
-    cout << "  Category type Unit Test Suite:" << endl;
-    cout << "  =======================" << endl<< endl;
+    cout << endl<<endl<<endl;
+    cout << "  ==============================" << endl;
+    cout << "  CATEGORY type Unit Test Suite:" << endl;
+    cout << "  ==============================" << endl<< endl;
     cout << endl<<endl;
 
 

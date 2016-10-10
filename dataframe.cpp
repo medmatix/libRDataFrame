@@ -179,13 +179,14 @@ using namespace std;
      *  @return a vector<string> the variable names as a vector of
      *          strings
      */
-    vector<string> dataframe::getVarNames() {
+    vector<string> dataframe::getColNames() {
         return colNames;
     }
 
-    vector<string> dataframe::getVarTypes() {
-        return varTypes;
+    vector<string> dataframe::getColTypes() {
+        return colTypes;
     }
+
 
     /** add a row of observations to the dataframe structure tuples,
      *  @param obsRow a pointer to the tuple of observations to add
@@ -194,6 +195,14 @@ using namespace std;
     void dataframe::addObsRow(void* obsRow) {
 
     }
+
+    void setColTypes(std::vector<std::string> cTypes) {
+    }
+
+    void setColNames(vector<string> cNames) {
+
+    }
+
 
     /** add a new Node/variable or (re)set the contents of a Node or variable,
      *  @designnote Consider whether this functionality should be split further
@@ -243,45 +252,82 @@ using namespace std;
      *  @param header a boolean indicating if the first row of CSV contains column names.
      *  @return none (void)
      */
-    void dataframe::loadFromCSV(string csvFName, bool header) {
+    void dataframe::loadFromCSV(string csvFName, bool header, vector<string> strVarTypes) {
         // get the raw string data, vector<vector<string> > via UtilsCSV
         string frCSV = csvFName;
         bool head = header;
         int rtoline = 0;
+        vector<string> cTypes;
         utilCSV newCSV(frCSV, head, rtoline);
-        vector<vector<string> > fetchedCSV;
-        fetchedCSV = newCSV.getStrDataStruct();
-        // get the vector<string> list if data types to be applied by column
-        getVarTypes();
-        // convert each column to desired data type vector<type>
+        fetchedStrDataStruct = newCSV.getStrDataStruct();
+        // get the vector<string> list of data types to be applied by column
+        cTypes = newCSV.getColTypes();
+
+        colNames = newCSV.getColNames();
 
         // create Node from vectors<type> for each  column
-        node varsGrp;
+
         // populate columns from Nodes in the generic or blank dataframe
-        df.push_back(varsGrp);
+
         //end
     }
+
+    /**
+     * readRowsCSV, read a variable element from each row and construct a column vector of
+     * a single variable's observation set
+     *
+     * @param strDStruct CSV derived  string data structure to read from
+     * @param nR number of row s (ie. elements ) to be read into the column vector
+     * @param colNumber  the variable number (column) of analogous observations
+     * @return varVector the vector of variable readings (observations)
+     */
+    vector<string> dataframe::readRowsSDS(vector<vector<string> > strDStruct, int nR, int colNumber) {
+        // vector to contain the obs from column of sDStruct
+        vector<string> varVector;
+        // populate varVector from csv rows at colNumber
+        vector<string> dataRow;
+        string currentObs;
+        for(unsigned int r = 0; r < nR; ++r) {
+            dataRow = strDStruct[r];
+            currentObs = dataRow[colNumber];
+            varVector.push_back(currentObs);
+        }
+        cout<< "Created vector " << colNumber << " of length " << varVector.size() << endl;
+        for(unsigned int el = 0; el < varVector.size(); ++el) {
+            cout << el << "  " << varVector[el]  << endl;
+        }
+        return varVector;
+    }
+
 
     /** build a dataframe / Class of vector of variable columns of types string
      *  as vector collection of contents from parsed strings of a specific
      *  observation fields. */
-    vector<vector<string> > makeDataFrame (vector<vector<string> > internStrDStruct) {
-        vector<vector<string> > dframe;
-        vector<node> vars;
-        vector<string> elems;
-
-        /** columns populated with vars[0]:vars[intStrDStruct.size()*/
-        for(unsigned int i = 0; i < internStrDStruct.size(); ++i) {
-            /**vars vectors populated with elements of intStrDStruct[i].size()*/
-            for(unsigned int j = 0; j < internStrDStruct[i].size(); ++j) {
-                cout << "("<< i << "," << j << ")" << " ";
-                elems[j]=(internStrDStruct[i])[j];
-            }
-        cout << endl;
+    void dataframe::convertCSVtoDF(vector<vector<string> > sDStruct, int nCSVRows, int nCSVCols) {
+        nrows = nCSVRows;
+        ncols = nCSVCols;
+        vector<string> colVData;
+        vector<vector<string>* > nodeVectors;
+        vector<string>* ptrColVData;
+        cout << "  Number of Rows  " << nrows;
+        cout<< "  Number of columns  " << ncols <<endl <<endl;
+        /** read each CSV row, into a column vector,
+         *  put pointer5 to vector in a node,
+         *  put node in the dataframe */
+        for(unsigned int i = 0; i < ncols; ++i){
+            // i is the current column being read
+            // nrows is the number if elements to read in the ith row
+            colVData = readRowsSDS(sDStruct, nrows, i);
+            // create pointer to variable vector of obs elements,
+            ptrColVData = &colVData;
+            nodeVectors.push_back(ptrColVData);
         }
-        return dframe;
-    }
 
+        for(unsigned int n = 0; n < ncols; ++n) {
+            node varn(nrows, "test", "string", n, nodeVectors[n]);
+            df.push_back(varn);
+        }
+    }
 
     /** save the dataframe contents (with or without a header line) to a
          *  CSV file,
@@ -298,7 +344,14 @@ using namespace std;
          *  @return none (void)
          */
     void dataframe::displayDataframe() {
-        //
+        // output rows as selected elements from each node
+        for(unsigned int r = 0; r < nrows; ++r){
+            for(unsigned int c = 0; c < ncols; ++c) {
+                //print item r of node c, repeat
+
+            }
+
+        }
     }
 
     /** display the node/variable of the dataframe,

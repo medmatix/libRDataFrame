@@ -25,6 +25,7 @@ protected:
     std::string lineToParse;
     std::vector<std::string> parsedLine;
     std::vector<std::string> colNames;
+    std::vector<std::string> colTypes;
     std::vector<std::string> csvToParse;
     std::vector<std::vector<std::string> > strDataStruct;
 
@@ -37,6 +38,7 @@ public:
     void setNrows();
     void setColNames(std::vector<std::string> cnames);
     std::vector<std::string> getColNames();
+    std::vector<std::string> getColTypes();
     std::vector<std::string> getCVS();
     std::vector<std::vector<std::string> > getStrDataStruct();
     std::vector<std::string> readCSV(std::string iFileN);

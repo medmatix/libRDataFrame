@@ -39,6 +39,7 @@ protected:
 public:
     node();
     node(int r, std::string vName, std::string vType, int vNumber);
+    node(void* pvData);
     node(int r, std::string vName, std::string vType, int vNumber, std::map<int, std::string>  catSet);
     node(int r, std::string vName, std::string vType, int vNumber, void* pvData);
     void* getVarDataRange(int start, int ending);
