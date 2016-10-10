@@ -1,6 +1,7 @@
 var searchData=
 [
   ['categorytype',['categoryType',['../classcategory_type.html#a9a5a45745986bc3c6c8b064e8230ffd3',1,'categoryType']]],
+  ['convertcsvtodf',['convertCSVtoDF',['../classdataframe.html#ae870756ea0f3027ecf5ed5d072dd52f7',1,'dataframe']]],
   ['convertdftovstrings',['convertDfToVStrings',['../dataframe_8cpp.html#a26c4378f0d0ddeefba3aa38cff6e17a3',1,'dataframe.cpp']]],
   ['convertparsedvstrtodf',['convertParsedVStrtoDf',['../classdataframe.html#a7afa8eaae93d8c17b5d2be7b632e9aa6',1,'dataframe']]],
   ['createobsdataframe',['createObsDataframe',['../classdataframe.html#a7a44a5a29c25f88dbde491d2c84c3130',1,'dataframe']]],

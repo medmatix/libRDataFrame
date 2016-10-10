@@ -10,7 +10,7 @@ var indexSectionsWithContent =
   0: "abcdglmnprstuw",
   1: "cdnu",
   2: "cdmnu",
-  3: "abcdglmnprstuw",
+  3: "abcdglnprstuw",
   4: "cn",
   5: "acdlmnu"
 };

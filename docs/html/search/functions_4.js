@@ -2,7 +2,8 @@ var searchData=
 [
   ['getcategorylevels',['getCategoryLevels',['../classcategory_type.html#ab36c772b944d6dc358584cdefa3d56b7',1,'categoryType']]],
   ['getcatvarranks',['getCatVarRanks',['../classcategory_type.html#a70594fd444584b9b84593507e5feba0b',1,'categoryType']]],
-  ['getcolnames',['getColNames',['../classutil_c_s_v.html#a51505222c4b06a8f9273fe99d1dff21d',1,'utilCSV']]],
+  ['getcolnames',['getColNames',['../classdataframe.html#adcccb43e63bf9587ca2a874dcb9eb2bd',1,'dataframe::getColNames()'],['../classutil_c_s_v.html#a51505222c4b06a8f9273fe99d1dff21d',1,'utilCSV::getColNames()']]],
+  ['getcoltypes',['getColTypes',['../classutil_c_s_v.html#ae585ec26c5eb01f56754ea2c13e9ff33',1,'utilCSV']]],
   ['getcvs',['getCVS',['../classutil_c_s_v.html#a542efb8d32639a4899f1d76adbbbd5ae',1,'utilCSV']]],
   ['getdataframe',['getDataframe',['../classdataframe.html#ada8c48084f21605d1d37e9696202b0bc',1,'dataframe']]],
   ['getdataframename',['getDataFrameName',['../classdataframe.html#acbc999bec5dfb028982206820b49eb6f',1,'dataframe']]],
@@ -14,7 +15,7 @@ var searchData=
   ['getnodedbldata',['getNodeDblData',['../classnode.html#a1c0628b7a2cb64d3a4f5ccd1c36e6312',1,'node']]],
   ['getnodeintdata',['getNodeIntData',['../classnode.html#a9976cb8449d56728fa0f8e05a8da58ca',1,'node']]],
   ['getnodestrdata',['getNodeStrData',['../classnode.html#af1a62d9c1443bb5685f196da22dbe4a3',1,'node']]],
-  ['getnrows',['getNrows',['../classutil_c_s_v.html#a1b04c59165f6c992a33dbcec65faf254',1,'utilCSV::getNrows()'],['../classnode.html#aae10be8cb139a65bf54ab812d42a9364',1,'node::getNRows()']]],
+  ['getnrows',['getNRows',['../classnode.html#aae10be8cb139a65bf54ab812d42a9364',1,'node::getNRows()'],['../classutil_c_s_v.html#a1b04c59165f6c992a33dbcec65faf254',1,'utilCSV::getNrows()']]],
   ['getobs',['getObs',['../classdataframe.html#acadba9d9d842cdfc72b33868a26f467b',1,'dataframe']]],
   ['getptrdata',['getPtrData',['../classnode.html#a33b8ce32ba0f3d19ea7e5acf76293f55',1,'node']]],
   ['getrangeofrows',['getRangeOfRows',['../classdataframe.html#a298186c812380b1d27b4c07ab1fb6393',1,'dataframe']]],
@@ -22,7 +23,6 @@ var searchData=
   ['getvardata',['getVarData',['../classnode.html#a2d7be041efb6f6aaaccb55050fe0c117',1,'node']]],
   ['getvardatarange',['getVarDataRange',['../classnode.html#aa1e4d78b9651c03e136a97eb3423194c',1,'node']]],
   ['getvarname',['getVarName',['../classnode.html#a94cb8e83f836d9e5e710528d2ae4dbad',1,'node']]],
-  ['getvarnames',['getVarNames',['../classdataframe.html#ae1b9789d3527853dd048d98563aca169',1,'dataframe']]],
   ['getvarnumber',['getVarNumber',['../classnode.html#aa999d875f5382fd39bbf251cade4b198',1,'node']]],
   ['getvartype',['getVarType',['../classnode.html#ae43d6f4fdde188062d5b29ca76bc6384',1,'node']]]
 ];
