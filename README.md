@@ -1,9 +1,9 @@
-## libRDataFrame
+## libanalysis
 @brief A library, containing the consolidated collection of routines to support R-style Data Structures for C++
 
 
 ### Overview and Statement of purpose (goal development)
-see [Project page](https://medmatix.github.io/libRDataFrame/)
+see [Project page](https://medmatix.github.io/libanalysis/)
   
 *Some components of the is project are of use outside of the R data structure Use Case, such as the utility to read and write CSV files in C++. The links to these are included to below.*
 
